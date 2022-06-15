@@ -15,18 +15,18 @@ import javax.validation.constraints.NotEmpty;
 public class UmsAdminLoginParam {
     @ApiModelProperty(value = "用户名", required = true)
     @NotEmpty(message = "用户名不能为空")
-    private String name;
+    private String username;
 
     @ApiModelProperty(value = "密码", required = true)
     @NotEmpty(message = "密码不能为空")
     private String password;
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
