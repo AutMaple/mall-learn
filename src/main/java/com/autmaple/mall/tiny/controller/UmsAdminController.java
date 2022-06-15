@@ -80,11 +80,11 @@ public class UmsAdminController {
     }
 
     /**
-     * @Author AutMaple
-     * @Description 获取某个管理员的权限列表
-     * @Date 21:38 2022/6/15
-     * @Param adminId 管理员的唯一标识
-     * @return 返回对应管理员的权限列表
+     *@Author AutMaple
+     *@Description 获取某个管理员的权限列表
+     *@Date 21:38 2022/6/15
+     *@Param adminId 管理员的唯一标识
+     *@return 返回对应管理员的权限列表
      **/
     @ApiOperation("返回对应管理员的权限列表")
     @ResponseBody
