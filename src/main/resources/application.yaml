@@ -30,3 +30,10 @@ redis:
       authCode: "portal:authCode"
     expire:
       authCode: 120 # 验证码超时时间
+
+# 自定义 jwt key
+jwt:
+  tokenHeader: Authorization # JWT 存储的请求头
+  secret: AutMaple # JWT 加密解密使用的密钥
+  expiration: 604800 # JWT过期时间
+  tokenHead: Bearer # JWT 负载中拿到开头
