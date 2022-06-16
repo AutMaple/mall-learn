@@ -37,21 +37,16 @@ import java.util.List;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    private final UmsAdminService adminService;
+    @Autowired
+    private UmsAdminService adminService;
     private final RestfulAccessDeniedHandler restfulAccessDeniedHandler;
     private final RestAuthenticationEntryPoint restAuthenticationEntryPoint;
 
-    private final JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter;
-
     @Autowired
-    public SecurityConfig(UmsAdminService adminService,
-                          RestfulAccessDeniedHandler restfulAccessDeniedHandler,
-                          RestAuthenticationEntryPoint restAuthenticationEntryPoint,
-                          JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter) {
-        this.adminService = adminService;
+    public SecurityConfig(RestfulAccessDeniedHandler restfulAccessDeniedHandler,
+                          RestAuthenticationEntryPoint restAuthenticationEntryPoint) {
         this.restfulAccessDeniedHandler = restfulAccessDeniedHandler;
         this.restAuthenticationEntryPoint = restAuthenticationEntryPoint;
-        this.jwtAuthenticationTokenFilter = jwtAuthenticationTokenFilter;
     }
 
     @Override
@@ -81,7 +76,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         httpSecurity.headers().cacheControl();
 
         // 添加 JWT 过滤器
-        httpSecurity.addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
+        httpSecurity.addFilterBefore(getJwtAuthenticationTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 
         // 添加自定义未授权和未登录请求的返回结果
         httpSecurity.exceptionHandling()
@@ -97,25 +92,31 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
+    @Bean
+    public JwtAuthenticationTokenFilter getJwtAuthenticationTokenFilter(){
+        return new JwtAuthenticationTokenFilter();
+    }
+
+    @Bean
     public UserDetailsService userDetailsService() {
+        // 获取用户登录信息
         return username -> {
             UmsAdmin admin = adminService.getAdminByUsername(username);
-            if(admin != null){
+            if (admin != null) {
                 List<UmsPermission> permissionList = adminService.getPermissionList(admin.getId());
                 return new AdminUserDetails(admin, permissionList);
             }
             throw new UsernameNotFoundException("用户名或者密码错误");
-
         };
     }
 
     @Bean
     @Override
-    public AuthenticationManager authenticationManagerBean() throws Exception{
+    public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
 }

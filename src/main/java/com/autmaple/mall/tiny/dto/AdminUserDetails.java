@@ -2,7 +2,6 @@ package com.autmaple.mall.tiny.dto;
 
 import com.autmaple.mall.tiny.mbg.model.UmsAdmin;
 import com.autmaple.mall.tiny.mbg.model.UmsPermission;
-import jdk.vm.ci.amd64.AMD64;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,8 +19,8 @@ import java.util.stream.Collectors;
  * Version 1.0
  **/
 public class AdminUserDetails implements UserDetails {
-    private UmsAdmin umsAdmin;
-    private List<UmsPermission> permissionList;
+    private final UmsAdmin umsAdmin;
+    private final List<UmsPermission> permissionList;
     public AdminUserDetails(UmsAdmin admin, List<UmsPermission> permissionList) {
         this.umsAdmin = admin;
         this.permissionList = permissionList;
