@@ -75,6 +75,15 @@ public class CommonResult<T> {
         return new CommonResult<T>(ResultCode.UNAUTHORIZED.getCode(), ResultCode.UNAUTHORIZED.getMessage(), data);
     }
 
+    /**
+     * @Author AutMaple
+     * @Description 设置未授权时返回的记过
+     * @Date 19:56 2022/6/16
+     **/
+    public static <T> CommonResult<T> forbidden(T data) {
+        return new CommonResult<T>(ResultCode.FORBIDDEN.getCode(), ResultCode.FORBIDDEN.getMessage(), data);
+    }
+
     public long getCode() {
         return code;
     }
