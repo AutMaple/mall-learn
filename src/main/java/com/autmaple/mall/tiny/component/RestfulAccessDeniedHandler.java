@@ -3,8 +3,10 @@ package com.autmaple.mall.tiny.component;
 import cn.hutool.json.JSONUtil;
 import com.autmaple.mall.tiny.common.api.CommonResult;
 import io.micrometer.core.instrument.util.JsonUtils;
+import org.springframework.boot.actuate.autoconfigure.web.server.ConditionalOnManagementPort;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +21,7 @@ import java.io.IOException;
  * @Date 2022/6/16 19:51
  * Version 1.0
  **/
+@Component
 public class RestfulAccessDeniedHandler implements AccessDeniedHandler {
     @Override
     public void handle(
