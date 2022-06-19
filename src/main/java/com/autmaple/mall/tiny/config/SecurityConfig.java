@@ -69,6 +69,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 //.antMatchers("/**") // 测试时，所有资源均允许访问
                 //.permitAll()
+                .antMatchers("/admin/login", "/admin/register") // 登录注册应该允许匿名访问
+                .permitAll()
+                .antMatchers(HttpMethod.OPTIONS) // 跨域请求首先发起一个 Options 请求
+                .permitAll()
                 .anyRequest() // 除了上面的请求外，其他的请求都需要进行鉴权认证
                 .authenticated();
 

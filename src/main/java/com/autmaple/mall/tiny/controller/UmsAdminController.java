@@ -29,7 +29,7 @@ import java.util.List;
 @RequestMapping("/admin")
 public class UmsAdminController {
 
-    private UmsAdminService adminService;
+    private final UmsAdminService adminService;
 
     @Value("${jwt.tokenHeader}")
     private String tokenHeader;
