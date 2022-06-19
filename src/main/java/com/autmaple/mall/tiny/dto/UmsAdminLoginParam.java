@@ -25,7 +25,7 @@ public class UmsAdminLoginParam {
         return username;
     }
 
-    public void setName(String username) {
+    public void setUserName(String username) {
         this.username = username;
     }
 
