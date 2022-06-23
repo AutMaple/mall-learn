@@ -2,8 +2,6 @@ package com.autmaple.mall.tiny.dao;
 
 import com.autmaple.mall.tiny.nosql.elasticsearch.document.EsProduct;
 import org.apache.ibatis.annotations.Param;
-import org.hibernate.validator.constraints.ParameterScriptAssert;
-import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 
 import java.util.List;
 

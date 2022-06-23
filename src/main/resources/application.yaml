@@ -24,8 +24,11 @@ spring:
     elasticsearch:
       repositories:
         enabled: true
-      cluster-nodes: 127.0.0.1:9300 # es 的连连接地址和端口号
+      cluster-nodes: 127.0.0.1:9300 # es 的连接地址和端口号
       cluster-name: elasticsearch # 集群的名字
+
+    mongodb:
+      uri: mongodb://mall:123456@127.0.0.1:27017/mall-port
 
 mybatis:
   mapper-locations:

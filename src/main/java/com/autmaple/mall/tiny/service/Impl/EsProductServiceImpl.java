@@ -4,7 +4,6 @@ import com.autmaple.mall.tiny.dao.EsProductDao;
 import com.autmaple.mall.tiny.nosql.elasticsearch.document.EsProduct;
 import com.autmaple.mall.tiny.nosql.elasticsearch.repository.EsProductRepository;
 import com.autmaple.mall.tiny.service.EsProductService;
-import org.elasticsearch.rest.action.RestActions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
