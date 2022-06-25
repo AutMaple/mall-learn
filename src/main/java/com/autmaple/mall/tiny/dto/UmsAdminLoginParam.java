@@ -5,12 +5,11 @@ import io.swagger.annotations.ApiModelProperty;
 import javax.validation.constraints.NotEmpty;
 
 /**
- * ClassName UmsAdminLoginParam
- * Description 管理员登录参数
- *
+ * @ClassName UmsAdminLoginParam
+ * @Description 管理员登录参数
  * @Author AutMaple
  * @Date 2022/6/15 21:23
- * Version 1.0
+ * @Version 1.0
  **/
 public class UmsAdminLoginParam {
     @ApiModelProperty(value = "用户名", required = true)

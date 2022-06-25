@@ -6,14 +6,13 @@ import com.autmaple.mall.tiny.service.MemberReadHistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.xml.crypto.Data;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 /**
  * @ClassName MemberReadHistoryServiceImpl
- * @Description TODO 会员浏览记录管理 Service 的实现类
+ * @Description 会员浏览记录管理 Service 的实现类
  * @Author AutMaple
  * @Date 2022/6/23 21:03
  * @Version 1.0

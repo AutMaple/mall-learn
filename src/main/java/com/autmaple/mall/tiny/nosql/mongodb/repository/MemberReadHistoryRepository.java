@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * @ClassName MemberReadHistoryRepository
- * @Description TODO 会员商品浏览历史 Repository
+ * @Description 会员商品浏览历史 Repository
  * @Author AutMaple
  * @Date 2022/6/23 20:52
  * @Version 1.0
@@ -15,7 +15,7 @@ import java.util.List;
 public interface MemberReadHistoryRepository extends MongoRepository<MemberReadHistory, String> {
     /**
      * @Author AutMaple
-     * @Description TODO 根据会员 id 按照时间倒序的顺序获取浏览记录
+     * @Description 根据会员 id 按照时间倒序的顺序获取浏览记录
      * @Date 2022/6/23 20:57
      **/
     List<MemberReadHistory> findByMemberIdOrderByCreateTimeDesc(Long memberId);

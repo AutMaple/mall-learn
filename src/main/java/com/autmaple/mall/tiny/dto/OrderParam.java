@@ -2,7 +2,7 @@ package com.autmaple.mall.tiny.dto;
 
 /**
  * @ClassName OrderParam
- * @Description TODO 生成订单时传入的参数
+ * @Description 生成订单时传入的参数
  * @Author AutMaple
  * @Date 2022/6/25 11:58
  * @Version 1.0
@@ -10,27 +10,27 @@ package com.autmaple.mall.tiny.dto;
 public class OrderParam {
     /**
      * @Author AutMaple
-     * @Description TODO 收货地址 ID
+     * @Description 收货地址 ID
      * @Date 2022/6/25 12:00
      **/
     private Long memberReceiveAddressId;
     /**
      * @Author AutMaple
-     * @Description TODO 优惠券 ID
+     * @Description 优惠券 ID
      * @Date 2022/6/25 12:00
      **/
     private Long couponId;
 
     /**
      * @Author AutMaple
-     * @Description TODO 使用的积分数
+     * @Description 使用的积分数
      * @Date 2022/6/25 12:01
      **/
     private Integer useIntegration;
 
     /**
      * @Author AutMaple
-     * @Description TODO 支付方式
+     * @Description 支付方式
      * @Date 2022/6/25 12:01
      **/
     private Integer payType;

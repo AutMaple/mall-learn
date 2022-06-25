@@ -37,7 +37,7 @@ public class EsProductServiceImpl implements EsProductService {
 
     /**
      * @Author AutMaple
-     * @Description TODO 返回所有的商品列表
+     * @Description 返回所有的商品列表
      * @Date 2022/6/19 20:48
      * @return 返回商品的总数
      **/
@@ -56,7 +56,7 @@ public class EsProductServiceImpl implements EsProductService {
 
     /**
      * @Author AutMaple
-     * @Description TODO 根据 id 删除产品
+     * @Description 根据 id 删除产品
      * @Date 2022/6/19 20:51
      * @param id 商品的唯一标识
      **/
@@ -67,7 +67,7 @@ public class EsProductServiceImpl implements EsProductService {
 
     /**
      * @Author AutMaple
-     * @Description TODO 创建商品
+     * @Description 创建商品
      * @Date 2022/6/19 20:56
      * @param id 商品的唯一标识
      * @return 创建成功之后的 EsProduct 实例对象
@@ -80,7 +80,7 @@ public class EsProductServiceImpl implements EsProductService {
 
     /**
      * @Author AutMaple
-     * @Description TODO 批量删除商品
+     * @Description 批量删除商品
      * @Date 2022/6/19 21:00
      * @param ids 将要删除商品的 id 列表
      **/
@@ -99,7 +99,7 @@ public class EsProductServiceImpl implements EsProductService {
 
     /**
      * @Author AutMaple
-     * @Description TODO 根据关键字搜索名称或者副标题
+     * @Description 根据关键字搜索名称或者副标题
      * @Date 2022/6/19 21:04
      * @param keyword 关键字
      * @param pageNum 页码

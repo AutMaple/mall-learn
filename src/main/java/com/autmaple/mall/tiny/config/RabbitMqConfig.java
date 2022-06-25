@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @ClassName RabbitMqConfig
- * @Description TODO RabbitMQ 的配置文件, 用于配置交换机、队列及队列与交换机的绑定关系
+ * @Description RabbitMQ 的配置文件, 用于配置交换机、队列及队列与交换机的绑定关系
  * @Author AutMaple
  * @Date 2022/6/25 10:44
  * @Version 1.0
@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitMqConfig {
     /**
      * @Author AutMaple
-     * @Description TODO 订单消息实际消费队列锁绑定的交换机
+     * @Description 订单消息实际消费队列锁绑定的交换机
      * @Date 2022/6/25 10:47
      **/
     @Bean
@@ -31,7 +31,7 @@ public class RabbitMqConfig {
 
     /**
      * @Author AutMaple
-     * @Description TODO 订单延迟队列所绑定的交换机
+     * @Description 订单延迟队列所绑定的交换机
      * @Date 2022/6/25 10:48
      **/
     @Bean
@@ -45,7 +45,7 @@ public class RabbitMqConfig {
 
     /**
      * @Author AutMaple
-     * @Description TODO 订单实际消费队列
+     * @Description 订单实际消费队列
      * @Date 2022/6/25 10:52
      **/
     @Bean
@@ -55,7 +55,7 @@ public class RabbitMqConfig {
 
     /**
      * @Author AutMaple
-     * @Description TODO 订单延迟队列(死信队列)
+     * @Description 订单延迟队列(死信队列)
      * @Date 2022/6/25 10:54
      **/
     @Bean
@@ -70,7 +70,7 @@ public class RabbitMqConfig {
 
     /**
      * @Author AutMaple
-     * @Description TODO 将订单帮都能够到交换机
+     * @Description 将订单帮都能够到交换机
      * @Date 2022/6/25 10:56
      **/
     @Bean
@@ -84,7 +84,7 @@ public class RabbitMqConfig {
 
     /**
      * @Author AutMaple
-     * @Description TODO 将订单延迟队列绑定到交换机
+     * @Description 将订单延迟队列绑定到交换机
      * @Date 2022/6/25 10:58
      **/
     @Bean

@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  * @ClassName MemberReadHistory
- * @Description TODO 用户商品浏览历史记录
+ * @Description 用户商品浏览历史记录
  * @Author AutMaple
  * @Date 2022/6/23 20:46
  * @Version 1.0

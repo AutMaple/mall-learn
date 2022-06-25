@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  * @ClassName MemberReadHistoryController
- * @Description TODO 会员商品浏览记录管理 Controller
+ * @Description 会员商品浏览记录管理 Controller
  * @Author AutMaple
  * @Date 2022/6/23 21:09
  * @Version 1.0
@@ -27,7 +27,7 @@ public class MemberReadHistoryController {
 
     /**
      * @Author AutMaple
-     * @Description TODO 创建会员商品浏览记录
+     * @Description 创建会员商品浏览记录
      * @Date 2022/6/23 21:17
      **/
     @ApiOperation("创建会员商品浏览记录")
@@ -60,7 +60,7 @@ public class MemberReadHistoryController {
 
     /**
      * @Author AutMaple
-     * @Description TODO 展示会员商品浏览记录
+     * @Description 展示会员商品浏览记录
      * @Date 2022/6/23 21:21
      **/
     @ApiOperation("展示会员浏览记录")

@@ -63,7 +63,6 @@ public class UmsAdminController {
      * @Author AutMaple
      * @Description 管理员登录接口
      * @Date 21:36 2022/6/15
-     * @Param [umsAdminLoginParam, result]
      * @return 登录成功之后返回对应的 token 字符串
      **/
     @ApiOperation("管理员登录接口")

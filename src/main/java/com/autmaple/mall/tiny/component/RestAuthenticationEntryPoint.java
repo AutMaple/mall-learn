@@ -12,12 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * ClassName RestAuthenticationEntryPoint
- * Description 未登录时或者 token 失效时，返回自定义的结果
- *
+ * @ClassName RestAuthenticationEntryPoint
+ * @Description 未登录时或者 token 失效时，返回自定义的结果
  * @Author AutMaple
  * @Date 2022/6/16 20:02
- * Version 1.0
+ * @Version 1.0
  **/
 @Component
 public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {

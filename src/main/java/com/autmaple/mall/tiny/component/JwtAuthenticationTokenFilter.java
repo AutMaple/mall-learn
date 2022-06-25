@@ -24,12 +24,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * ClassName JwtAuthenticationTokenFilter
- * Description JWT 登录认证过滤器
- *
+ * @ClassName JwtAuthenticationTokenFilter
+ * @Description JWT 登录认证过滤器
  * @Author AutMaple
  * @Date 2022/6/16 20:31
- * Version 1.0
+ * @Version 1.0
  **/
 public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
     private static final Logger LOGGER = LoggerFactory.getLogger(JwtAuthenticationTokenFilter.class);

@@ -14,12 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * ClassName RestfulAccessDeniedHandler
- * Description 当接口没有访问权限时，返回自定义的结果
- *
+ * @ClassName RestfulAccessDeniedHandler
+ * @Description 当接口没有访问权限时，返回自定义的结果
  * @Author AutMaple
  * @Date 2022/6/16 19:51
- * Version 1.0
+ * @Version 1.0
  **/
 @Component
 public class RestfulAccessDeniedHandler implements AccessDeniedHandler {

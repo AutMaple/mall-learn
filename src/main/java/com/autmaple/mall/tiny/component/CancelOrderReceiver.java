@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * @ClassName CancelOrderReceiver
- * @Description TODO 拉取取消订单的消费者
+ * @Description 拉取取消订单的消费者
  * @Author AutMaple
  * @Date 2022/6/25 11:50
  * @Version 1.0

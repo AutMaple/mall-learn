@@ -3,12 +3,9 @@ package com.autmaple.mall.tiny.controller;
 import com.autmaple.mall.tiny.common.api.CommonPage;
 import com.autmaple.mall.tiny.common.api.CommonResult;
 import com.autmaple.mall.tiny.nosql.elasticsearch.document.EsProduct;
-import com.autmaple.mall.tiny.nosql.elasticsearch.repository.EsProductRepository;
 import com.autmaple.mall.tiny.service.EsProductService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.elasticsearch.cluster.health.ClusterIndexHealth;
-import org.elasticsearch.rest.action.RestActions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -19,7 +16,7 @@ import java.util.List;
 
 /**
  * @ClassName EsProductController
- * @Description TODO 搜索商品管理的 Controller
+ * @Description  搜索商品管理的 Controller
  * @Author AutMaple
  * @Date 2022/6/19 21:03
  * @Version 1.0
@@ -33,7 +30,7 @@ public class EsProductController {
 
     /**
      * @Author AutMaple
-     * @Description TODO 导入所有数据库中的商品到 ES 中
+     * @Description 导入所有数据库中的商品到 ES 中
      * @Date 2022/6/19 21:09
      **/
     @ApiOperation("导入所有数据库中的商品到 ES 中")
@@ -46,7 +43,7 @@ public class EsProductController {
 
     /**
      * @Author AutMaple
-     * @Description TODO 根据 id 删除商品
+     * @Description 根据 id 删除商品
      * @Date 2022/6/19 21:12
      **/
     @ApiOperation(value = "根据 id 删除商品")
@@ -60,7 +57,7 @@ public class EsProductController {
 
     /**
      * @Author AutMaple
-     * @Description TODO 批量删除商品
+     * @Description 批量删除商品
      * @Date 2022/6/19 21:16
      **/
     @ApiOperation(value = "批量删除商品")
@@ -74,7 +71,7 @@ public class EsProductController {
 
     /**
      * @Author AutMaple
-     * @Description TODO 根据 id 创建商品
+     * @Description 根据 id 创建商品
      * @Date 2022/6/19 21:13
      * @return 创建成功之后商品对应的实例对象 EsProduct
      **/

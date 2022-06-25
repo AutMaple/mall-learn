@@ -11,12 +11,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * ClassName AdminUserDetails
- * Description SpringSecurity 需要用户的详细信息
- *
+ * @ClassName AdminUserDetails
+ * @Description SpringSecurity 需要用户的详细信息
  * @Author AutMaple
  * @Date 2022/6/16 21:24
- * Version 1.0
+ * @Version 1.0
  **/
 public class AdminUserDetails implements UserDetails {
     private final UmsAdmin umsAdmin;

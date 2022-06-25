@@ -4,7 +4,6 @@ import com.autmaple.mall.tiny.common.api.CommonResult;
 import com.autmaple.mall.tiny.component.CancelOrderSender;
 import com.autmaple.mall.tiny.dto.OrderParam;
 import com.autmaple.mall.tiny.service.OmsPortalOrderService;
-import jdk.nashorn.internal.runtime.options.LoggingOption;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * @ClassName OmsPortalOrderServiceImpl
- * @Description TODO 前台订单管理 Service 实现类
+ * @Description 前台订单管理 Service 实现类
  * @Author AutMaple
  * @Date 2022/6/25 12:04
  * @Version 1.0
@@ -27,7 +26,7 @@ public class OmsPortalOrderServiceImpl implements OmsPortalOrderService {
 
     /**
      * @Author AutMaple
-     * @Description TODO 根据提交的信息生成订单
+     * @Description 根据提交的信息生成订单
      * @Date 2022/6/25 12:06
      **/
     @Override

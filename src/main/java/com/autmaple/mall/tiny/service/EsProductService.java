@@ -23,7 +23,7 @@ public interface EsProductService {
 
     /**
       * @Author AutMaple
-      * @Description TODO 根据 id 删除商品
+      * @Description 根据 id 删除商品
       * @Date 2022/6/19 20:25
       * @param id 商品的唯一标识
       **/
@@ -31,7 +31,7 @@ public interface EsProductService {
 
     /**
       * @Author AutMaple
-      * @Description TODO 根据 id 创建商品
+      * @Description 根据 id 创建商品
       * @Date 2022/6/19 20:26
       * @param id 商品的唯一标识
       **/
@@ -39,7 +39,7 @@ public interface EsProductService {
 
     /**
       * @Author AutMaple
-      * @Description TODO 批量删除商品
+      * @Description 批量删除商品
       * @Date 2022/6/19 20:28
       * @param ids 要删除的 id 列表
       **/
@@ -47,7 +47,7 @@ public interface EsProductService {
 
     /**
       * @Author AutMaple
-      * @Description TODO 根据关键字搜索名称或者副标题
+      * @Description 根据关键字搜索名称或者副标题
       * @Date 2022/6/19 20:29
       * @param keyword 关键字
       * @param  pageNum 页码
