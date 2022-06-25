@@ -24,6 +24,7 @@ public class OrderTimeOutCancelTask {
       **/
     @Scheduled(cron = "0 0/10 * ? * ?")
     private void cancelTimeOutOrder() {
+        // TODO 扫描订单，并取消超时订单
         LOGGER.info("取消订单，并根据 sku 编号释放锁定的库存");
     }
 }

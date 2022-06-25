@@ -29,6 +29,13 @@ spring:
 
     mongodb:
       uri: mongodb://mall:123456@127.0.0.1:27017/mall-port
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: mall
+    password: mall
+    virtual-host: /mall # rabbitmq 的虚拟 host
+    publisher-confirms: true # 如果对异步消息需要回调必须设置为 true
 
 mybatis:
   mapper-locations:
