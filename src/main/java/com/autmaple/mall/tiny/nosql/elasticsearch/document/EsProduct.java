@@ -38,7 +38,6 @@ public class EsProduct implements Serializable {
     private String subTitle;
     @Field(analyzer = "ik_max_word", type = FieldType.Text)
     private String keywords;
-    @Field(type = FieldType.Double)
     private BigDecimal price;
     private Integer sale;
     private Integer newStatus;
