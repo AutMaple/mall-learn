@@ -15,13 +15,13 @@ import org.springframework.data.elasticsearch.repository.ElasticsearchRepository
 public interface EsProductRepository extends ElasticsearchRepository<EsProduct, Long> {
 
     /**
-      * @Author AutMaple
-      * @Description 搜索查询
-      * @Date 2022/6/19 20:21
-      * @Param name 商品名称
-      * @Param subTitle 商品标题
-      * @Param keywords 商品关键字
-      * @Param page 分页信息
-      **/
+     * @Author AutMaple
+     * @Description 搜索查询
+     * @Date 2022/6/19 20:21
+     * @Param name 商品名称
+     * @Param subTitle 商品标题
+     * @Param keywords 商品关键字
+     * @Param page 分页信息
+     **/
     Page<EsProduct> findByNameOrSubTitleOrKeywords(String name, String subTitle, String keywords, Pageable page);
 }

@@ -155,6 +155,7 @@ public class WebLog {
     public Object getParameter() {
         return parameter;
     }
+
     public void setParameter(Object parameter) {
         this.parameter = parameter;
     }

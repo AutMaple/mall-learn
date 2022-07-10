@@ -1,7 +1,6 @@
 package com.autmaple.mall.tiny.component;
 
 import com.autmaple.mall.tiny.service.OmsPortalOrderService;
-import jdk.nashorn.internal.runtime.options.LoggingOption;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
@@ -23,7 +22,7 @@ public class CancelOrderReceiver {
     private OmsPortalOrderService portalOrderService;
 
     @RabbitHandler
-    public void handle(Long orderId){
+    public void handle(Long orderId) {
         LOGGER.info("receive delay message orderId: {}", orderId);
         portalOrderService.cancelOrder(orderId);
     }

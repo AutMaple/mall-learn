@@ -37,15 +37,20 @@
         <!--指定生成mapper接口的的路径-->
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.autmaple.mall.tiny.mbg.mapper"
                              targetProject="src/main/java"/>
+<!--        <table tableName="pms_brand">-->
+<!--            <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+<!--        </table>-->
+<!--        <table tableName="ums_admin">-->
+<!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+<!--        </table>-->
+<!--        <table tableName="ums_permission">-->
+<!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+<!--        </table>-->
+
+
         <!--生成全部表tableName设为%-->
-        <table tableName="pms_brand">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>
-        <table tableName="ums_admin">
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="ums_permission">
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
+                <table tableName="%">
+                    <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+                </table>
     </context>
 </generatorConfiguration>

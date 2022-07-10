@@ -33,9 +33,9 @@ public class MemberReadHistoryController {
     @ApiOperation("创建会员商品浏览记录")
     @ResponseBody
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public CommonResult create(@RequestBody MemberReadHistory memberReadHistory){
+    public CommonResult create(@RequestBody MemberReadHistory memberReadHistory) {
         int count = memberReadHistoryService.create(memberReadHistory);
-        if(count > 0){
+        if (count > 0) {
             return CommonResult.success(count);
         }
         return CommonResult.failed();
@@ -50,9 +50,9 @@ public class MemberReadHistoryController {
     @ApiOperation(value = "删除浏览记录")
     @ResponseBody
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    public CommonResult delete(@RequestParam("ids")List<String> ids){
+    public CommonResult delete(@RequestParam("ids") List<String> ids) {
         int count = memberReadHistoryService.delete(ids);
-        if(count > 0)
+        if (count > 0)
             return CommonResult.success(count);
         return CommonResult.failed();
     }
@@ -66,7 +66,7 @@ public class MemberReadHistoryController {
     @ApiOperation("展示会员浏览记录")
     @ResponseBody
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public CommonResult<List<MemberReadHistory>> list(long memberId){
+    public CommonResult<List<MemberReadHistory>> list(long memberId) {
         List<MemberReadHistory> memberReadHistoryList = memberReadHistoryService.list(memberId);
         return CommonResult.success(memberReadHistoryList);
     }

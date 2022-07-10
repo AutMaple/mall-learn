@@ -13,6 +13,7 @@ public class CommonResult<T> {
 
     /**
      * 成功返回结果
+     *
      * @param data 查询到的数据
      */
     public static <T> CommonResult<T> success(T data) {
@@ -23,15 +24,17 @@ public class CommonResult<T> {
 
     /**
      * 成功返回结果
-     * @param data 查询到的数据
+     *
+     * @param data    查询到的数据
      * @param message 提示信息
      */
-    public static <T> CommonResult<T> success(T data, String message){
+    public static <T> CommonResult<T> success(T data, String message) {
         return new CommonResult<>(ResultCode.SUCCESS.getCode(), message, data);
     }
 
     /**
      * 失败返回结果
+     *
      * @param errorCode 错误码
      */
     public static <T> CommonResult<T> failed(IErrorCode errorCode) {
@@ -40,9 +43,10 @@ public class CommonResult<T> {
 
     /**
      * 失败返回信息
+     *
      * @param message 提示信息
      */
-    public static <T> CommonResult<T> failed(String message){
+    public static <T> CommonResult<T> failed(String message) {
         return new CommonResult<T>(ResultCode.FAILED.getCode(), message, null);
     }
 
@@ -62,6 +66,7 @@ public class CommonResult<T> {
 
     /**
      * 参数验证失败返回结果
+     *
      * @param message 提示信息
      */
     public static <T> CommonResult<T> validateFailed(String message) {
@@ -71,7 +76,7 @@ public class CommonResult<T> {
     /**
      * 未授权返回结果
      */
-    public static <T> CommonResult<T> unauthorized(T data){
+    public static <T> CommonResult<T> unauthorized(T data) {
         return new CommonResult<T>(ResultCode.UNAUTHORIZED.getCode(), ResultCode.UNAUTHORIZED.getMessage(), data);
     }
 

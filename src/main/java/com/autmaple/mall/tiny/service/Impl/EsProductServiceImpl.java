@@ -36,10 +36,10 @@ public class EsProductServiceImpl implements EsProductService {
     private EsProductRepository productRepository;
 
     /**
+     * @return 返回商品的总数
      * @Author AutMaple
      * @Description 返回所有的商品列表
      * @Date 2022/6/19 20:48
-     * @return 返回商品的总数
      **/
     @Override
     public int importAll() {
@@ -47,7 +47,7 @@ public class EsProductServiceImpl implements EsProductService {
         Iterable<EsProduct> esProductIterable = productRepository.saveAll(esProductList);
         Iterator<EsProduct> iterator = esProductIterable.iterator();
         int result = 0;
-        while(iterator.hasNext()){
+        while (iterator.hasNext()) {
             result++;
             iterator.next();
         }
@@ -55,10 +55,10 @@ public class EsProductServiceImpl implements EsProductService {
     }
 
     /**
+     * @param id 商品的唯一标识
      * @Author AutMaple
      * @Description 根据 id 删除产品
      * @Date 2022/6/19 20:51
-     * @param id 商品的唯一标识
      **/
     @Override
     public void delete(Long id) {
@@ -66,27 +66,27 @@ public class EsProductServiceImpl implements EsProductService {
     }
 
     /**
+     * @param id 商品的唯一标识
+     * @return 创建成功之后的 EsProduct 实例对象
      * @Author AutMaple
      * @Description 创建商品
      * @Date 2022/6/19 20:56
-     * @param id 商品的唯一标识
-     * @return 创建成功之后的 EsProduct 实例对象
      **/
     @Override
     public EsProduct create(Long id) {
         List<EsProduct> esProductList = productDao.getAllEsProductList(id);
-        return esProductList.size() > 0 ? productRepository.save(esProductList.get(0)): null;
+        return esProductList.size() > 0 ? productRepository.save(esProductList.get(0)) : null;
     }
 
     /**
+     * @param ids 将要删除商品的 id 列表
      * @Author AutMaple
      * @Description 批量删除商品
      * @Date 2022/6/19 21:00
-     * @param ids 将要删除商品的 id 列表
      **/
     @Override
     public void delete(List<Long> ids) {
-        if(!CollectionUtils.isEmpty(ids)){
+        if (!CollectionUtils.isEmpty(ids)) {
             ArrayList<EsProduct> esProductList = new ArrayList<>();
             for (Long id : ids) {
                 EsProduct esProduct = new EsProduct();
@@ -98,17 +98,17 @@ public class EsProductServiceImpl implements EsProductService {
     }
 
     /**
+     * @param keyword  关键字
+     * @param pageNum  页码
+     * @param pageSize 页面大小
+     * @return 搜索到的商品
      * @Author AutMaple
      * @Description 根据关键字搜索名称或者副标题
      * @Date 2022/6/19 21:04
-     * @param keyword 关键字
-     * @param pageNum 页码
-     * @param pageSize 页面大小
-     * @return 搜索到的商品
      **/
     @Override
     public Page<EsProduct> search(String keyword, Integer pageNum, Integer pageSize) {
         Pageable pageRequest = PageRequest.of(pageNum, pageSize);
-        return productRepository.findByNameOrSubTitleOrKeywords(keyword, keyword,keyword, pageRequest);
+        return productRepository.findByNameOrSubTitleOrKeywords(keyword, keyword, keyword, pageRequest);
     }
 }

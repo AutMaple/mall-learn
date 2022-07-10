@@ -20,6 +20,7 @@ import java.util.stream.Collectors;
 public class AdminUserDetails implements UserDetails {
     private final UmsAdmin umsAdmin;
     private final List<UmsPermission> permissionList;
+
     public AdminUserDetails(UmsAdmin admin, List<UmsPermission> permissionList) {
         this.umsAdmin = admin;
         this.permissionList = permissionList;
@@ -29,7 +30,7 @@ public class AdminUserDetails implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return permissionList.stream()
                 .filter(permission -> permission.getValue() != null)
-                .map(permission ->  new SimpleGrantedAuthority(permission.getValue()))
+                .map(permission -> new SimpleGrantedAuthority(permission.getValue()))
                 .collect(Collectors.toList());
     }
 

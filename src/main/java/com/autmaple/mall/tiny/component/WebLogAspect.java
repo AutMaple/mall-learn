@@ -5,7 +5,6 @@ import cn.hutool.core.util.URLUtil;
 import cn.hutool.json.JSONUtil;
 import com.autmaple.mall.tiny.dto.WebLog;
 import io.swagger.annotations.ApiOperation;
-import jdk.nashorn.internal.runtime.options.LoggingOption;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
@@ -42,22 +41,22 @@ public class WebLogAspect {
     private static final Logger LOGGER = LoggerFactory.getLogger(WebLogAspect.class);
 
     @Pointcut("execution(public * com.autmaple.mall.tiny.controller.*.*(..))")
-    public void webLog(){
+    public void webLog() {
 
     }
 
     @Before("webLog()")
-    public void doBefore(JoinPoint joinPoint) throws Throwable{
+    public void doBefore(JoinPoint joinPoint) throws Throwable {
 
     }
 
     @AfterReturning(value = "webLog()", returning = "ret")
-    public void doAfterReturning(Object ret) throws Throwable{
+    public void doAfterReturning(Object ret) throws Throwable {
 
     }
 
     @Around("webLog()")
-    public Object doAround(ProceedingJoinPoint joinPoint) throws Throwable{
+    public Object doAround(ProceedingJoinPoint joinPoint) throws Throwable {
         long startTime = System.currentTimeMillis();
         // 获取当前请求的对象
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
@@ -68,7 +67,7 @@ public class WebLogAspect {
         Signature signature = joinPoint.getSignature();
         MethodSignature methodSignature = (MethodSignature) signature;
         Method method = methodSignature.getMethod();
-        if(method.isAnnotationPresent(ApiOperation.class)){
+        if (method.isAnnotationPresent(ApiOperation.class)) {
             ApiOperation apiOperation = method.getAnnotation(ApiOperation.class);
             webLog.setDescription(apiOperation.value());
         }
@@ -80,7 +79,7 @@ public class WebLogAspect {
         webLog.setMethod(request.getMethod());
         webLog.setParameter(getParameter(method, joinPoint.getArgs()));
         webLog.setResult(result);
-        webLog.setSpendTime((int)(endTime - startTime));
+        webLog.setSpendTime((int) (endTime - startTime));
         webLog.setStartTime(startTime);
         webLog.setUri(request.getRequestURI());
         webLog.setUrl(request.getRequestURL().toString());
@@ -93,29 +92,29 @@ public class WebLogAspect {
      * @Description 根据方法和传入的参数获取请求参数
      * @Date 2022/6/26 18:19
      **/
-    private Object getParameter(Method method, Object[] args){
+    private Object getParameter(Method method, Object[] args) {
         List<Object> argList = new ArrayList<>();
         Parameter[] parameters = method.getParameters();
-        for(int i = 0; i < parameters.length; i++){
+        for (int i = 0; i < parameters.length; i++) {
             // 将 RequestBody 注解修饰的参数作为请求参数
             RequestBody requestBody = parameters[i].getAnnotation(RequestBody.class);
-            if(requestBody != null){
+            if (requestBody != null) {
                 argList.add(args[i]);
             }
 
             // 将 RequestParam 注解修饰的参数作为请求参数
             RequestParam requestParam = parameters[i].getAnnotation(RequestParam.class);
-            if(requestParam != null){
+            if (requestParam != null) {
                 HashMap<String, Object> map = new HashMap<>();
                 String key = parameters[i].getName();
-                if(!StringUtils.isEmpty(requestParam.value())){
+                if (!StringUtils.isEmpty(requestParam.value())) {
                     key = requestParam.value();
                 }
                 map.put(key, args[i]);
                 argList.add(map);
             }
         }
-        if(argList.size() == 0)
+        if (argList.size() == 0)
             return null;
         else if (argList.size() == 1)
             return argList.get(0);

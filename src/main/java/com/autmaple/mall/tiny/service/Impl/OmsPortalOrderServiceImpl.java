@@ -44,7 +44,7 @@ public class OmsPortalOrderServiceImpl implements OmsPortalOrderService {
         LOGGER.info("process cancelOrder orderId:{}", orderId);
     }
 
-    private void sendDelayMessageCancelOrder(Long orderId){
+    private void sendDelayMessageCancelOrder(Long orderId) {
         // 设置订单的超时时间
         long delayTimes = 30 * 1000;
         cancelOrderSender.senderMessage(orderId, delayTimes);

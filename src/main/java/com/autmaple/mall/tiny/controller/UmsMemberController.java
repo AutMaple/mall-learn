@@ -24,7 +24,7 @@ public class UmsMemberController {
     @ApiOperation("获取验证码")
     @RequestMapping(value = "/getAuthCode", method = RequestMethod.GET)
     @ResponseBody
-    public CommonResult getAuthCode(@RequestParam String telephone){
+    public CommonResult getAuthCode(@RequestParam String telephone) {
         return memberService.generateAuthCode(telephone);
     }
 
@@ -32,7 +32,7 @@ public class UmsMemberController {
     @RequestMapping(value = "/verifyAuthCode", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult verifyAuthCode(@RequestParam String telephone,
-                                       @RequestParam String authCode){
+                                       @RequestParam String authCode) {
         return memberService.verifyAuthCode(telephone, authCode);
     }
 

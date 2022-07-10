@@ -19,7 +19,7 @@ import java.util.List;
 public class Swagger2Config {
 
     @Bean
-    public Docket createRestApi(){
+    public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
@@ -32,7 +32,7 @@ public class Swagger2Config {
                 .securityContexts(securityContexts());
     }
 
-    private ApiInfo apiInfo(){
+    private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("Swagger-UI 展示")
                 .description("Mall-tiny Api Document")
@@ -47,7 +47,7 @@ public class Swagger2Config {
      * @Description 设置请求头的信息
      * @Date 21:59 2022/6/15
      **/
-    private List<ApiKey> securityScheme(){
+    private List<ApiKey> securityScheme() {
         List<ApiKey> result = new ArrayList<>();
         ApiKey apiKey = new ApiKey("Authorization", "Authorization", "header");
         result.add(apiKey);
@@ -59,7 +59,7 @@ public class Swagger2Config {
      * @Description 设置需要登录认证的路径
      * @Date 22:09 2022/6/15
      **/
-    private List<SecurityContext> securityContexts(){
+    private List<SecurityContext> securityContexts() {
         ArrayList<SecurityContext> result = new ArrayList<>();
         result.add(getContextByPath("/brand/.*"));
         return result;
@@ -72,7 +72,7 @@ public class Swagger2Config {
      * @Date 22:14 2022/6/15
      * @Param 请求路径对应正则表达式
      **/
-    private SecurityContext getContextByPath(String pathRegex){
+    private SecurityContext getContextByPath(String pathRegex) {
         return SecurityContext.builder()
                 .securityReferences(defaultAuth())
                 .forPaths(PathSelectors.regex(pathRegex))
@@ -85,7 +85,7 @@ public class Swagger2Config {
      * @Description
      * @Date 22:20 2022/6/15
      **/
-    private List<SecurityReference> defaultAuth(){
+    private List<SecurityReference> defaultAuth() {
         List<SecurityReference> result = new ArrayList<>();
         AuthorizationScope authorizationScope = new AuthorizationScope("global", "accessEverything");
         AuthorizationScope[] authorizationScopes = new AuthorizationScope[1];
@@ -93,7 +93,6 @@ public class Swagger2Config {
         result.add(new SecurityReference("Authorization", authorizationScopes));
         return result;
     }
-
 
 
 }

@@ -1,6 +1,6 @@
 package com.autmaple.mall.tiny.common.api;
 
-public enum ResultCode implements IErrorCode{
+public enum ResultCode implements IErrorCode {
 
     SUCCESS(200, "操作成功"),
     FAILED(500, "操作失败"),
@@ -10,7 +10,8 @@ public enum ResultCode implements IErrorCode{
 
     private final long code;
     private final String message;
-    ResultCode(long code, String message){
+
+    ResultCode(long code, String message) {
         this.code = code;
         this.message = message;
     }

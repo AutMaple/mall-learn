@@ -29,7 +29,7 @@ public class OmsPortalOrderController {
     @ApiOperation("根据购物车的信息生成订单")
     @ResponseBody
     @RequestMapping(value = "/generateOrder", method = RequestMethod.POST)
-    public Object generatorOrder(@RequestBody OrderParam orderParam){
+    public Object generatorOrder(@RequestBody OrderParam orderParam) {
         return omsPortalOrderService.generatorOrder(orderParam);
     }
 }

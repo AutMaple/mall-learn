@@ -21,7 +21,7 @@ public class RabbitMqConfig {
      * @Date 2022/6/25 10:47
      **/
     @Bean
-    public DirectExchange orderDirect(){
+    public DirectExchange orderDirect() {
         return (DirectExchange) ExchangeBuilder
                 .directExchange(QueueEnum.QUEUE_ORDER_CANCEL.getExchange())
                 .durable(true)
@@ -35,7 +35,7 @@ public class RabbitMqConfig {
      * @Date 2022/6/25 10:48
      **/
     @Bean
-    public DirectExchange orderTtlDirect(){
+    public DirectExchange orderTtlDirect() {
         return (DirectExchange) ExchangeBuilder
                 .directExchange(QueueEnum.QUEUE_TTL_ORDER_CANCEL.getExchange())
                 .durable(true)
@@ -59,7 +59,7 @@ public class RabbitMqConfig {
      * @Date 2022/6/25 10:54
      **/
     @Bean
-    public Queue orderTtlQueue(){
+    public Queue orderTtlQueue() {
         return QueueBuilder
                 .durable(QueueEnum.QUEUE_TTL_ORDER_CANCEL.getName())
                 .withArgument("x-dead-letter-exchange", QueueEnum.QUEUE_ORDER_CANCEL.getExchange())
@@ -74,7 +74,7 @@ public class RabbitMqConfig {
      * @Date 2022/6/25 10:56
      **/
     @Bean
-    public Binding orderBinding(DirectExchange orderDirect, Queue orderQueue){
+    public Binding orderBinding(DirectExchange orderDirect, Queue orderQueue) {
         return BindingBuilder
                 .bind(orderQueue)
                 .to(orderDirect)
@@ -88,7 +88,7 @@ public class RabbitMqConfig {
      * @Date 2022/6/25 10:58
      **/
     @Bean
-    public Binding orderTtlBinding(@Qualifier("orderTtlDirect") DirectExchange orderTtlExchange, Queue orderTtlQueue){
+    public Binding orderTtlBinding(@Qualifier("orderTtlDirect") DirectExchange orderTtlExchange, Queue orderTtlQueue) {
         return BindingBuilder
                 .bind(orderTtlQueue)
                 .to(orderTtlExchange)

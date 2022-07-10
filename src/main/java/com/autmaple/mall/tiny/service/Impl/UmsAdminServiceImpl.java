@@ -21,7 +21,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import javax.websocket.server.ServerEndpoint;
 import java.util.Date;
 import java.util.List;
 
@@ -45,6 +44,7 @@ public class UmsAdminServiceImpl implements UmsAdminService {
 
     /**
      * 根据用户名获取管理员信息
+     *
      * @param username 管理员用户名
      */
     @Override
@@ -52,7 +52,7 @@ public class UmsAdminServiceImpl implements UmsAdminService {
         UmsAdminExample example = new UmsAdminExample();
         example.createCriteria().andUsernameEqualTo(username);
         List<UmsAdmin> adminList = adminMapper.selectByExample(example);
-        if(adminList != null && adminList.size() > 0)
+        if (adminList != null && adminList.size() > 0)
             return adminList.get(0);
         return null;
     }
@@ -72,7 +72,7 @@ public class UmsAdminServiceImpl implements UmsAdminService {
         UmsAdminExample example = new UmsAdminExample();
         example.createCriteria().andUsernameEqualTo(admin.getUsername());
         List<UmsAdmin> adminList = adminMapper.selectByExample(example);
-        if(adminList != null && adminList.size() > 0)
+        if (adminList != null && adminList.size() > 0)
             return null;
 
         // 将密码进行加密操作,SpringSecurity 框架提供了密码加密的操作
@@ -88,13 +88,13 @@ public class UmsAdminServiceImpl implements UmsAdminService {
         String token = null;
         try {
             UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-            if(!passwordEncoder.matches(password, userDetails.getPassword())){
+            if (!passwordEncoder.matches(password, userDetails.getPassword())) {
                 throw new BadCredentialsException("密码不正确");
             }
             UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
             SecurityContextHolder.getContext().setAuthentication(authenticationToken);
             token = jwtTokenUtil.generateToken(userDetails);
-        } catch (AuthenticationException e){
+        } catch (AuthenticationException e) {
             LOGGER.warn("登录异常:{}", e.getMessage());
         }
         return token;

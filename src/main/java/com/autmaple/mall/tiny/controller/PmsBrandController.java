@@ -20,10 +20,9 @@ import java.util.List;
 @RequestMapping("/brand")
 public class PmsBrandController {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(PmsBrandController.class);
     @Autowired
     private PmsBrandService pmsBrandService;
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(PmsBrandController.class);
 
     @ApiOperation("获取所有的品牌列表")
     @RequestMapping(value = "listAll", method = RequestMethod.GET)
@@ -37,13 +36,13 @@ public class PmsBrandController {
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
     @PreAuthorize("hasAnyAuthority('pms:brand:create')")
-    public CommonResult createBrand(@RequestBody PmsBrand brand){
+    public CommonResult createBrand(@RequestBody PmsBrand brand) {
         CommonResult commonResult;
         int count = pmsBrandService.createBrand(brand);
-        if(count == 1){
+        if (count == 1) {
             commonResult = CommonResult.success(brand);
             LOGGER.debug("createBrand success: {}", brand);
-        }else{
+        } else {
             commonResult = CommonResult.failed("操作失败");
             LOGGER.debug("createBrand failed: {}", brand);
         }
@@ -51,16 +50,16 @@ public class PmsBrandController {
     }
 
     @ApiOperation("根据 id 更新对应品牌的信息")
-    @RequestMapping(value="/update/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
     @ResponseBody
     @PreAuthorize("hasAnyAuthority('pms:brand:update')")
-    public CommonResult updateBrand(@PathVariable("id") Long id, @RequestBody PmsBrand brand){
+    public CommonResult updateBrand(@PathVariable("id") Long id, @RequestBody PmsBrand brand) {
         CommonResult commonResult;
         int count = pmsBrandService.updateBrand(id, brand);
-        if(count == 1){
+        if (count == 1) {
             commonResult = CommonResult.success(brand);
             LOGGER.debug("updateBrand success: {}", brand);
-        }else{
+        } else {
             commonResult = CommonResult.failed("更新失败");
             LOGGER.debug("updateBrand failed: {}", brand);
         }
@@ -68,16 +67,16 @@ public class PmsBrandController {
     }
 
     @ApiOperation("删除指定 id 对应的品牌信息")
-    @RequestMapping(value="delete/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
     @ResponseBody
     @PreAuthorize("hasAnyAuthority('pms:brand:delete')")
-    public CommonResult deleteBrand(@PathVariable Long id){
+    public CommonResult deleteBrand(@PathVariable Long id) {
         CommonResult commonResult;
         int count = pmsBrandService.deleteBrand(id);
-        if(count == 1){
+        if (count == 1) {
             commonResult = CommonResult.success(null);
             LOGGER.debug("deleteBrand success: id={}", id);
-        }else{
+        } else {
             commonResult = CommonResult.failed("删除失败");
             LOGGER.debug("deleteBrand failed: id={}", id);
         }
@@ -85,21 +84,21 @@ public class PmsBrandController {
     }
 
     @ApiOperation("分页展示品牌信息")
-    @RequestMapping(value="/list", method = RequestMethod.GET)
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
     @PreAuthorize("hasAnyAuthority('pms:brand:read')")
-    public CommonResult<CommonPage<PmsBrand>> listBrand(@RequestParam(value="pageNum", defaultValue = "1") Integer pageNum,
-                                  @RequestParam(value="pageSize", defaultValue = "3") Integer pageSize){
+    public CommonResult<CommonPage<PmsBrand>> listBrand(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
+                                                        @RequestParam(value = "pageSize", defaultValue = "3") Integer pageSize) {
 
         List<PmsBrand> brandList = pmsBrandService.listBrand(pageNum, pageSize);
         return CommonResult.success(CommonPage.restPage(brandList));
     }
 
     @ApiOperation("获取指定 id 对应品牌的详细信息")
-    @RequestMapping(value="/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
     @PreAuthorize("hasAnyAuthority('pms:brand:read')")
-    public CommonResult<PmsBrand> brand(@PathVariable("id") Long id){
+    public CommonResult<PmsBrand> brand(@PathVariable("id") Long id) {
         return CommonResult.success(pmsBrandService.getBrand(id));
     }
 

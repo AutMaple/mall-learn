@@ -1,7 +1,7 @@
 package com.autmaple.mall.tiny.common.api;
 
-import org.springframework.data.domain.Page;
 import com.github.pagehelper.PageInfo;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ public class CommonPage<T> {
     /**
      * 将 PageHelper 分页后的 List 转化成分页信息
      */
-    public static <T> CommonPage<T> restPage(List<T> list){
+    public static <T> CommonPage<T> restPage(List<T> list) {
         CommonPage<T> result = new CommonPage<T>();
         PageInfo<T> pageInfo = new PageInfo<>(list);
         result.setTotalPage(pageInfo.getPageSize());
@@ -29,7 +29,7 @@ public class CommonPage<T> {
     /**
      * 将 SpringData 分页后的 list 转换成分页信息
      */
-    public static <T> CommonPage<T> restPage(Page<T> pageInfo){
+    public static <T> CommonPage<T> restPage(Page<T> pageInfo) {
         CommonPage<T> result = new CommonPage<>();
         result.setTotalPage(pageInfo.getTotalPages());
         result.setPageNum(pageInfo.getNumber());

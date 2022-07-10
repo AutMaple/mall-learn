@@ -36,11 +36,11 @@ public class UmsMemberServiceImpl implements UmsMemberService {
 
     @Override
     public CommonResult verifyAuthCode(String telephone, String authCode) {
-        if(StringUtils.isEmpty(authCode)){
+        if (StringUtils.isEmpty(authCode)) {
             return CommonResult.failed("请输入验证码");
         }
-        String serverAuthCode = redisService.get(REDIS_KEY_PREFIX_AUTH_CODE+telephone);
-        if(serverAuthCode.equals(authCode)){
+        String serverAuthCode = redisService.get(REDIS_KEY_PREFIX_AUTH_CODE + telephone);
+        if (serverAuthCode.equals(authCode)) {
             return CommonResult.success(null, "验证码校验成功");
         }
         return CommonResult.failed("验证码校验失败");

@@ -18,10 +18,10 @@ public class OrderTimeOutCancelTask {
     private Logger LOGGER = LoggerFactory.getLogger(OrderTimeOutCancelTask.class);
 
     /**
-      * @Author AutMaple
-      * @Description 每 10 分钟扫描一次，扫描设定超时时间之前下的订单，如果没有支付就取消订单
-      * @Date 2022/6/19 17:45
-      **/
+     * @Author AutMaple
+     * @Description 每 10 分钟扫描一次，扫描设定超时时间之前下的订单，如果没有支付就取消订单
+     * @Date 2022/6/19 17:45
+     **/
     @Scheduled(cron = "0 0/10 * ? * ?")
     private void cancelTimeOutOrder() {
         // TODO 扫描订单，并取消超时订单
