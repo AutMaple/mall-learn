@@ -2,8 +2,9 @@ package com.autmaple.mall.tiny.mbg.mapper;
 
 import com.autmaple.mall.tiny.mbg.model.PmsMemberPrice;
 import com.autmaple.mall.tiny.mbg.model.PmsMemberPriceExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface PmsMemberPriceMapper {
     long countByExample(PmsMemberPriceExample example);

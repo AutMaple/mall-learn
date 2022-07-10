@@ -2,8 +2,9 @@ package com.autmaple.mall.tiny.mbg.mapper;
 
 import com.autmaple.mall.tiny.mbg.model.PmsProductVertifyRecord;
 import com.autmaple.mall.tiny.mbg.model.PmsProductVertifyRecordExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface PmsProductVertifyRecordMapper {
     long countByExample(PmsProductVertifyRecordExample example);

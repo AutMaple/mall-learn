@@ -3,9 +3,6 @@ package com.autmaple.mall.tiny.config;
 import com.autmaple.mall.tiny.component.JwtAuthenticationTokenFilter;
 import com.autmaple.mall.tiny.component.RestAuthenticationEntryPoint;
 import com.autmaple.mall.tiny.component.RestfulAccessDeniedHandler;
-import com.autmaple.mall.tiny.dto.AdminUserDetails;
-import com.autmaple.mall.tiny.mbg.model.UmsAdmin;
-import com.autmaple.mall.tiny.mbg.model.UmsPermission;
 import com.autmaple.mall.tiny.service.UmsAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -19,12 +16,9 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-
-import java.util.List;
 
 
 /**
@@ -105,14 +99,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public UserDetailsService userDetailsService() {
         // 获取用户信息和用户的权限信息
-        return username -> {
-            UmsAdmin admin = adminService.getAdminByUsername(username);
-            if (admin != null) {
-                List<UmsPermission> permissionList = adminService.getPermissionList(admin.getId());
-                return new AdminUserDetails(admin, permissionList);
-            }
-            throw new UsernameNotFoundException("用户名或者密码错误");
-        };
+        return username -> adminService.loadUserByUsername(username);
     }
 
     @Bean

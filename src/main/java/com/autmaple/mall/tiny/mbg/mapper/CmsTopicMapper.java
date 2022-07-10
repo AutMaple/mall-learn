@@ -2,8 +2,9 @@ package com.autmaple.mall.tiny.mbg.mapper;
 
 import com.autmaple.mall.tiny.mbg.model.CmsTopic;
 import com.autmaple.mall.tiny.mbg.model.CmsTopicExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface CmsTopicMapper {
     long countByExample(CmsTopicExample example);

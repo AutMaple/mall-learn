@@ -2,8 +2,9 @@ package com.autmaple.mall.tiny.mbg.mapper;
 
 import com.autmaple.mall.tiny.mbg.model.PmsProductAttribute;
 import com.autmaple.mall.tiny.mbg.model.PmsProductAttributeExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface PmsProductAttributeMapper {
     long countByExample(PmsProductAttributeExample example);

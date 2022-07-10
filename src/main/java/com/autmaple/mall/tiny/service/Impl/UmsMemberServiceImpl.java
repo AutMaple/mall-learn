@@ -39,7 +39,7 @@ public class UmsMemberServiceImpl implements UmsMemberService {
         if (StringUtils.isEmpty(authCode)) {
             return CommonResult.failed("请输入验证码");
         }
-        String serverAuthCode = redisService.get(REDIS_KEY_PREFIX_AUTH_CODE + telephone);
+        String serverAuthCode = (String) redisService.get(REDIS_KEY_PREFIX_AUTH_CODE + telephone);
         if (serverAuthCode.equals(authCode)) {
             return CommonResult.success(null, "验证码校验成功");
         }

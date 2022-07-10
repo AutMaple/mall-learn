@@ -2,8 +2,9 @@ package com.autmaple.mall.tiny.mbg.mapper;
 
 import com.autmaple.mall.tiny.mbg.model.UmsMemberReceiveAddress;
 import com.autmaple.mall.tiny.mbg.model.UmsMemberReceiveAddressExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface UmsMemberReceiveAddressMapper {
     long countByExample(UmsMemberReceiveAddressExample example);

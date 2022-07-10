@@ -2,8 +2,9 @@ package com.autmaple.mall.tiny.mbg.mapper;
 
 import com.autmaple.mall.tiny.mbg.model.UmsIntegrationChangeHistory;
 import com.autmaple.mall.tiny.mbg.model.UmsIntegrationChangeHistoryExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface UmsIntegrationChangeHistoryMapper {
     long countByExample(UmsIntegrationChangeHistoryExample example);

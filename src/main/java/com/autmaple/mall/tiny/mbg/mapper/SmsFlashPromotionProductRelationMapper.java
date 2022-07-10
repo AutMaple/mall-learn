@@ -2,8 +2,9 @@ package com.autmaple.mall.tiny.mbg.mapper;
 
 import com.autmaple.mall.tiny.mbg.model.SmsFlashPromotionProductRelation;
 import com.autmaple.mall.tiny.mbg.model.SmsFlashPromotionProductRelationExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface SmsFlashPromotionProductRelationMapper {
     long countByExample(SmsFlashPromotionProductRelationExample example);

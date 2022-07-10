@@ -2,8 +2,9 @@ package com.autmaple.mall.tiny.mbg.mapper;
 
 import com.autmaple.mall.tiny.mbg.model.CmsHelpCategory;
 import com.autmaple.mall.tiny.mbg.model.CmsHelpCategoryExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface CmsHelpCategoryMapper {
     long countByExample(CmsHelpCategoryExample example);

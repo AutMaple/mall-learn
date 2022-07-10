@@ -2,8 +2,9 @@ package com.autmaple.mall.tiny.mbg.mapper;
 
 import com.autmaple.mall.tiny.mbg.model.OmsOrderOperateHistory;
 import com.autmaple.mall.tiny.mbg.model.OmsOrderOperateHistoryExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface OmsOrderOperateHistoryMapper {
     long countByExample(OmsOrderOperateHistoryExample example);

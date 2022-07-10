@@ -39,15 +39,20 @@ spring:
 
 mybatis:
   mapper-locations:
-    - classpath:mapper/*.xml
+    - classpath:dao/*.xml
     - classpath*:com/**/mapper/*.xml
 
 redis:
+  database: mall
   key:
     prefix:
       authCode: "portal:authCode"
     expire:
-      authCode: 120 # 验证码超时时间
+      authCode: 120
+    admin: 'ums:admin'
+    resourceList: 'ums:resourceList'
+  expire:
+    common: 86400 # 24 小时
 
 # 自定义 jwt key
 jwt:

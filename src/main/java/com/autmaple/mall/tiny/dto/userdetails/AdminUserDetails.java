@@ -1,7 +1,7 @@
-package com.autmaple.mall.tiny.dto;
+package com.autmaple.mall.tiny.dto.userdetails;
 
 import com.autmaple.mall.tiny.mbg.model.UmsAdmin;
-import com.autmaple.mall.tiny.mbg.model.UmsPermission;
+import com.autmaple.mall.tiny.mbg.model.UmsResource;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,18 +19,18 @@ import java.util.stream.Collectors;
  **/
 public class AdminUserDetails implements UserDetails {
     private final UmsAdmin umsAdmin;
-    private final List<UmsPermission> permissionList;
 
-    public AdminUserDetails(UmsAdmin admin, List<UmsPermission> permissionList) {
+    private final List<UmsResource> resourceList;
+
+    public AdminUserDetails(UmsAdmin admin, List<UmsResource> resourceList) {
         this.umsAdmin = admin;
-        this.permissionList = permissionList;
+        this.resourceList = resourceList;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return permissionList.stream()
-                .filter(permission -> permission.getValue() != null)
-                .map(permission -> new SimpleGrantedAuthority(permission.getValue()))
+        return resourceList.stream()
+                .map(role -> new SimpleGrantedAuthority(role.getId() + ":" + role.getName()))
                 .collect(Collectors.toList());
     }
 

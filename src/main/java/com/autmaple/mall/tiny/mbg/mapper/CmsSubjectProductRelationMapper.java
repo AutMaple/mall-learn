@@ -2,8 +2,9 @@ package com.autmaple.mall.tiny.mbg.mapper;
 
 import com.autmaple.mall.tiny.mbg.model.CmsSubjectProductRelation;
 import com.autmaple.mall.tiny.mbg.model.CmsSubjectProductRelationExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface CmsSubjectProductRelationMapper {
     long countByExample(CmsSubjectProductRelationExample example);

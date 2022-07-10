@@ -1,22 +1,18 @@
 package com.autmaple.mall.tiny.mbg.model;
 
 import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 
 public class SmsCouponProductRelation implements Serializable {
+    private static final long serialVersionUID = 1L;
     private Long id;
-
     private Long couponId;
-
     private Long productId;
-
     @ApiModelProperty(value = "商品名称")
     private String productName;
-
     @ApiModelProperty(value = "商品编码")
     private String productSn;
-
-    private static final long serialVersionUID = 1L;
 
     public Long getId() {
         return id;

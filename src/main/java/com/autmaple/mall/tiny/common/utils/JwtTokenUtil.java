@@ -1,5 +1,8 @@
 package com.autmaple.mall.tiny.common.utils;
 
+import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.util.StrUtil;
+import com.github.pagehelper.util.StringUtil;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -24,6 +27,9 @@ public class JwtTokenUtil {
 
     @Value("${jwt.expiration}")
     private Long expiration;
+
+    @Value("${jwt.tokenHead}")
+    private String tokenHead;
 
     /**
      * 根据 claim 生成 JWT 的 Token
@@ -124,5 +130,47 @@ public class JwtTokenUtil {
         Claims claims = getClaimsFromToken(token);
         claims.put(CLAIM_KEY_CREATED, new Date());
         return generateToken(claims);
+    }
+
+    /**
+     * @Author AutMaple
+     * @Description 当原来的 Token 没有过期时， Token 是可以刷新的
+     * @Date 2022/7/10 15:04
+     **/
+    public String refreshHeadToken(String oldToken) {
+        if (StrUtil.isEmpty(oldToken))
+            return null;
+
+        String token = oldToken.substring(tokenHead.length());
+        if (StringUtil.isEmpty(token))
+            return null;
+
+        // token 校验不通过
+        Claims claims = getClaimsFromToken(oldToken);
+        if (claims == null)
+            return null;
+
+        // 如果 token 已经过期
+        if (isTokenExpired(oldToken))
+            return null;
+
+        // 如果 Token 30 分钟之内刷新过，返回原 token
+        if (tokenRefreshJustBefore(oldToken, 30 * 60))
+            return oldToken;
+
+        claims.put(CLAIM_KEY_CREATED, new Date());
+        return generateToken(claims);
+    }
+
+    /**
+     * @Author AutMaple
+     * @Description 判断 token 刚刚是否被刷新过
+     * @Date 2022/7/10 14:55
+     **/
+    public boolean tokenRefreshJustBefore(String token, int time) {
+        Claims claims = getClaimsFromToken(token);
+        Date created = claims.get(CLAIM_KEY_CREATED, Date.class);
+        Date refreshDate = new Date();
+        return refreshDate.after(created) && refreshDate.before(DateUtil.offsetSecond(created, time));
     }
 }

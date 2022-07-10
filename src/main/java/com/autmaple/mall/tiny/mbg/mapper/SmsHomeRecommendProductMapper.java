@@ -2,8 +2,9 @@ package com.autmaple.mall.tiny.mbg.mapper;
 
 import com.autmaple.mall.tiny.mbg.model.SmsHomeRecommendProduct;
 import com.autmaple.mall.tiny.mbg.model.SmsHomeRecommendProductExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface SmsHomeRecommendProductMapper {
     long countByExample(SmsHomeRecommendProductExample example);

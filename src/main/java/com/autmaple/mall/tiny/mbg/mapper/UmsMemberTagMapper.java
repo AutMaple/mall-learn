@@ -2,8 +2,9 @@ package com.autmaple.mall.tiny.mbg.mapper;
 
 import com.autmaple.mall.tiny.mbg.model.UmsMemberTag;
 import com.autmaple.mall.tiny.mbg.model.UmsMemberTagExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface UmsMemberTagMapper {
     long countByExample(UmsMemberTagExample example);

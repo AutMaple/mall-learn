@@ -2,8 +2,9 @@ package com.autmaple.mall.tiny.mbg.mapper;
 
 import com.autmaple.mall.tiny.mbg.model.UmsMemberLoginLog;
 import com.autmaple.mall.tiny.mbg.model.UmsMemberLoginLogExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface UmsMemberLoginLogMapper {
     long countByExample(UmsMemberLoginLogExample example);

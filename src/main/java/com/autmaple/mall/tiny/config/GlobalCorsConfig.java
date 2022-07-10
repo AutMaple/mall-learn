@@ -17,7 +17,7 @@ import org.springframework.web.filter.CorsFilter;
 public class GlobalCorsConfig {
 
     @Bean
-    public CorsFilter corsFilter(){
+    public CorsFilter corsFilter() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         // 允许所有域名进行跨域调用
         corsConfiguration.addAllowedOrigin("*");

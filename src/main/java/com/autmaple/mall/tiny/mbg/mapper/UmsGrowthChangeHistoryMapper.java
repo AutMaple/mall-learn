@@ -2,8 +2,9 @@ package com.autmaple.mall.tiny.mbg.mapper;
 
 import com.autmaple.mall.tiny.mbg.model.UmsGrowthChangeHistory;
 import com.autmaple.mall.tiny.mbg.model.UmsGrowthChangeHistoryExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface UmsGrowthChangeHistoryMapper {
     long countByExample(UmsGrowthChangeHistoryExample example);

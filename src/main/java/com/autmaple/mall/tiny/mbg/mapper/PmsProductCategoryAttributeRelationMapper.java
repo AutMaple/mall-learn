@@ -2,8 +2,9 @@ package com.autmaple.mall.tiny.mbg.mapper;
 
 import com.autmaple.mall.tiny.mbg.model.PmsProductCategoryAttributeRelation;
 import com.autmaple.mall.tiny.mbg.model.PmsProductCategoryAttributeRelationExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface PmsProductCategoryAttributeRelationMapper {
     long countByExample(PmsProductCategoryAttributeRelationExample example);
