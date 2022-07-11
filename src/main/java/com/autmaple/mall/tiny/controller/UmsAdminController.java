@@ -24,12 +24,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * ClassName UmsAdminController
- * Description 管理员相关操作的接口
- *
+ * @ClassName UmsAdminController
+ * @Description 管理员相关操作的接口
  * @Author AutMaple
  * @Date 2022/6/15 20:25
- * Version 1.0
+ * @Version 1.0
  **/
 @Api(tags = "UmsAdminController", description = "后台用户管理")
 @RestController

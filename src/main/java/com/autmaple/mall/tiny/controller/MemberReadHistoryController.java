@@ -6,7 +6,6 @@ import com.autmaple.mall.tiny.service.MemberReadHistoryService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,8 +18,8 @@ import java.util.List;
  * @Version 1.0
  **/
 @Api(tags = "MemberReadHistoryController", description = "会员商品浏览记录管理")
+@RestController
 @RequestMapping("/member/readHistory")
-@Controller
 public class MemberReadHistoryController {
     @Autowired
     private MemberReadHistoryService memberReadHistoryService;
@@ -31,7 +30,6 @@ public class MemberReadHistoryController {
      * @Date 2022/6/23 21:17
      **/
     @ApiOperation("创建会员商品浏览记录")
-    @ResponseBody
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public CommonResult create(@RequestBody MemberReadHistory memberReadHistory) {
         int count = memberReadHistoryService.create(memberReadHistory);
@@ -48,7 +46,6 @@ public class MemberReadHistoryController {
      * @Date 2022/6/23 21:17
      **/
     @ApiOperation(value = "删除浏览记录")
-    @ResponseBody
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public CommonResult delete(@RequestParam("ids") List<String> ids) {
         int count = memberReadHistoryService.delete(ids);
@@ -64,7 +61,6 @@ public class MemberReadHistoryController {
      * @Date 2022/6/23 21:21
      **/
     @ApiOperation("展示会员浏览记录")
-    @ResponseBody
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public CommonResult<List<MemberReadHistory>> list(long memberId) {
         List<MemberReadHistory> memberReadHistoryList = memberReadHistoryService.list(memberId);

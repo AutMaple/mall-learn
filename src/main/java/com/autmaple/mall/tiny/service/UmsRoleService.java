@@ -3,7 +3,6 @@ package com.autmaple.mall.tiny.service;
 import com.autmaple.mall.tiny.mbg.model.UmsMenu;
 import com.autmaple.mall.tiny.mbg.model.UmsResource;
 import com.autmaple.mall.tiny.mbg.model.UmsRole;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 

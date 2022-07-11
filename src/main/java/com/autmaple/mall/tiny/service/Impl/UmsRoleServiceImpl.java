@@ -9,15 +9,9 @@ import com.autmaple.mall.tiny.mbg.model.*;
 import com.autmaple.mall.tiny.service.UmsAdminCacheService;
 import com.autmaple.mall.tiny.service.UmsRoleService;
 import com.github.pagehelper.PageHelper;
-import com.sun.xml.internal.ws.message.RootElementSniffer;
-import org.hibernate.validator.cfg.context.ContainerElementConstraintMappingContext;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.actuate.endpoint.web.annotation.ControllerEndpointDiscoverer;
-import org.springframework.data.support.ExampleMatcherAccessor;
-import org.springframework.security.web.authentication.ExceptionMappingAuthenticationFailureHandler;
 import org.springframework.stereotype.Service;
 
-import javax.security.sasl.RealmCallback;
 import java.util.Date;
 import java.util.List;
 
@@ -77,7 +71,7 @@ public class UmsRoleServiceImpl implements UmsRoleService {
     public List<UmsRole> list(String keyword, Integer pageSize, Integer pageNum) {
         PageHelper.startPage(pageNum, pageSize);
         UmsRoleExample example = new UmsRoleExample();
-        if(!StrUtil.isEmpty(keyword)){
+        if (!StrUtil.isEmpty(keyword)) {
             example.or().andNameLike("%" + keyword + "%");
         }
         return roleMapper.selectByExample(example);
