@@ -42,7 +42,7 @@ public class MemberReadHistoryController {
 
     /**
      * @Author AutMaple
-     * @Description TODO 删除会员浏览记录
+     * @Description 删除会员浏览记录
      * @Date 2022/6/23 21:17
      **/
     @ApiOperation(value = "删除浏览记录")

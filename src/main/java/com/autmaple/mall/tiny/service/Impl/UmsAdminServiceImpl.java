@@ -121,7 +121,6 @@ public class UmsAdminServiceImpl implements UmsAdminService {
             if (!userDetails.isEnabled())
                 Asserts.fail("帐号已被禁用");
 
-            // TODO 这两行代码的意思是啥？
             UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
             SecurityContextHolder.getContext().setAuthentication(authenticationToken);
 

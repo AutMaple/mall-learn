@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.autmaple.mall.tiny.dao.OmsOrderDao">
+    <resultMap id="getList" type="com.autmaple.mall.tiny.dto.OmsOrderDetail"
+               extends="com.autmaple.mall.tiny.mbg.mapper.OmsOrderMapper.BaseResultMap">
+        <collection property="orderItemList"
+                    resultMap="com.autmaple.mall.tiny.mbg.mapper.OmsOrderItemMapper.BaseResultMap"
+                    columnPrefix="item_"/>
+        <collection property="historyList"
+                    resultMap="com.autmaple.mall.tiny.mbg.mapper.OmsOrderOperateHistoryMapper.BaseResultMap"
+                    columnPrefix="history_"/>
+    </resultMap>
+
+    <select id="getList" resultMap="com.autmaple.mall.tiny.mbg.mapper.OmsOrderMapper.BaseResultMap">
+        select *
+        from
+        oms_order
+        where
+        delete_status = 0
+        <if test="queryParam.orderSn!=null and queryParam.orderSn!=''">
+            and order_sn = #{queryParam.orderSn}
+        </if>
+        <if test="queryParam.status!=null">
+            and status = #{queryparam.status}
+        </if>
+        <if test="queryParam.sourceType!=null">
+            and source_type = #{queryparam.sourceType}
+        </if>
+        <if test="queryParam.orderType!=null">
+            and order_type = #{queryparam.orderType}
+        </if>
+        <if test="queryParam.createTime!=null and queryParam.createTme != ''">
+            and create_time = #{queryparam.createTime}
+        </if>
+        <if test="queryParam.receiverKeyword!=null and queryParam.receiverKeyword != ''">
+            and (
+            receiver_name like concat("%", #{queryParam.receiverKeyword}, "%")
+            or receiver_phone like concat("%", #{queryPara.receiverKeyword}, "%")
+            )
+        </if>
+    </select>
+
+    <update id="delivery">
+        update oms_order
+        set
+        delivery_sn = case id
+        <foreach collection="list" item="item">
+            when #{item.orderId} then #{item.deliverySn}
+        </foreach>
+        end,
+        delivery_company = case id
+        <foreach collection="list" item="item">
+            when #{item.orderId} then #{item.deliveryCompany}
+        </foreach>
+        end,
+        delivery_time case id
+        <foreach collection="list" item="item">
+            when #{item.orderId} then now()
+        </foreach>
+        end,
+        status = case id
+        <foreach collection="list" item="item">
+            when #{item.orderId} then 2
+        </foreach>
+        end,
+        where
+        id in
+        <foreach collection="list" item="item" separator="," open="(" close=")">
+            #{item.orderId}
+        </foreach>
+        and status = 1
+    </update>
+
+    <select id="getDetail" resultMap="orderDetailResultMap">
+        select o.*,
+               oi.id               item_id,
+               oi.product_id       item_product_id,
+               oi.product_sn       item_product_sn,
+               oi.product_pic      item_product_pic,
+               oi.product_name     item_product_name,
+               oi.product_brand    item_product_brand,
+               oi.product_price    item_product_price,
+               oi.product_quantity item_product_quantity,
+               oh.id               history_id,
+               oh.operate_man      history_operate_man,
+               oh.create_time      history_create_time,
+               oh.order_status     history_order_status,
+               oh.note             history_note
+        from oms_order o
+                 left join oms_order_item oi on o.id = oi.order_id
+                 left join oms_order_operate_history oh on o.id = oh.order_id
+        where o.id = #{id}
+        order by oi.id, oh.create_time desc
+    </select>
+</mapper>
