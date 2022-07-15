@@ -2,10 +2,12 @@ package com.autmaple.mall.tiny.mbg.mapper;
 
 import com.autmaple.mall.tiny.mbg.model.OmsOrderReturnApply;
 import com.autmaple.mall.tiny.mbg.model.OmsOrderReturnApplyExample;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+@Mapper
 public interface OmsOrderReturnApplyMapper {
     long countByExample(OmsOrderReturnApplyExample example);
 

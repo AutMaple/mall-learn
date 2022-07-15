@@ -38,8 +38,8 @@ public class CmsSubjectController {
     @ApiOperation("根据专题名称分页获取商品专题")
     @GetMapping("/list")
     public CommonResult<CommonPage<CmsSubject>> getList(@RequestParam(value = "keyword", required = false) String keyword,
-                                                        @RequestParam(value = "pageNum", required = false) Integer pageNum,
-                                                        @RequestParam(value = "pageSize", required = false) Integer pageSize) {
+                                                        @RequestParam(value = "pageNum", required = false, defaultValue = "1") Integer pageNum,
+                                                        @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize) {
         List<CmsSubject> subjectList = subjectService.list(keyword, pageNum, pageSize);
         return CommonResult.success(CommonPage.restPage(subjectList));
     }

@@ -62,7 +62,7 @@ public class MemberReadHistoryController {
      **/
     @ApiOperation("展示会员浏览记录")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public CommonResult<List<MemberReadHistory>> list(long memberId) {
+    public CommonResult<List<MemberReadHistory>> list(Long memberId) {
         List<MemberReadHistory> memberReadHistoryList = memberReadHistoryService.list(memberId);
         return CommonResult.success(memberReadHistoryList);
     }

@@ -32,7 +32,7 @@ public class EsProductController {
      * @Date 2022/6/19 21:09
      **/
     @ApiOperation("导入所有数据库中的商品到 ES 中")
-    @RequestMapping(value = "/importAll", method = RequestMethod.POST)
+    @PostMapping("/importAll")
     public CommonResult<Integer> importAllList() {
         int count = esProductService.importAll();
         return CommonResult.success(count);
@@ -44,7 +44,7 @@ public class EsProductController {
      * @Date 2022/6/19 21:12
      **/
     @ApiOperation(value = "根据 id 删除商品")
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    @GetMapping("/delete/{id}")
     public CommonResult<Object> delete(@PathVariable Long id) {
         esProductService.delete(id);
         return CommonResult.success(null);
@@ -57,7 +57,7 @@ public class EsProductController {
      * @Date 2022/6/19 21:16
      **/
     @ApiOperation(value = "批量删除商品")
-    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    @PostMapping("/delete")
     public CommonResult<Object> delete(@RequestParam("ids") List<Long> ids) {
         esProductService.delete(ids);
         return CommonResult.success(null);
@@ -71,8 +71,9 @@ public class EsProductController {
      * @Date 2022/6/19 21:13
      **/
     @ApiOperation(value = "根据 id 创建商品")
-    @RequestMapping(value = "/create/{id}", method = RequestMethod.POST)
+    @PostMapping("/create/{id}")
     public CommonResult<EsProduct> create(@PathVariable Long id) {
+        // TODO 根据 id 创建商品有问题，接口一直返回创建失败
         EsProduct product = esProductService.create(id);
         if (product != null)
             return CommonResult.success(product);
