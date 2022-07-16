@@ -2,10 +2,12 @@ package com.autmaple.mall.tiny.mbg.mapper;
 
 import com.autmaple.mall.tiny.mbg.model.PmsProductFullReduction;
 import com.autmaple.mall.tiny.mbg.model.PmsProductFullReductionExample;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+@Mapper
 public interface PmsProductFullReductionMapper {
     long countByExample(PmsProductFullReductionExample example);
 

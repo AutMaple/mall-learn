@@ -15,11 +15,11 @@ import java.util.List;
  **/
 public interface PmsProductAttributeService {
     /**
+     * @param cid  分类ID
+     * @param type 0->规格； 1->参数
      * @Author AutMaple
      * @Description 根据分类分页获取商品属性
      * @Date 2022/7/16 12:51
-     * @param cid 分类ID
-     * @param type 0->规格； 1->参数
      **/
     List<PmsProductAttribute> getList(Long cid, Integer type, Integer pageSize, Integer PageNum);
 

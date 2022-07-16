@@ -34,5 +34,5 @@ public class OmsOrderSettingController {
         int count = settingService.update(id, orderSetting);
         return count > 0 ? CommonResult.success(count) : CommonResult.failed();
     }
-   
+
 }

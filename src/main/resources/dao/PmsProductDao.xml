@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.autmaple.mall.tiny.dao.PmsProductDao">
+    <resultMap id="updateInfoMap" type="com.autmaple.mall.tiny.dto.PmsProductResult"
+               extends="com.autmaple.mall.tiny.mbg.mapper.PmsProductMapper.ResultMapWithBLOBs">
+        <result column="cateParentId" jdbcType="BIGINT" property="cateParentId"/>
+        <collection property="productLadderList" columnPrefix="ladder_"
+                    resultMap="com.autmaple.mall.tiny.mbg.mapper.PmsProductLadderMapper.BaseResultMap"/>
+        <collection property="productFullReductionList" columnPrefix="full_"
+                    resultMap="com.autmaple.mall.tiny.mbg.mapper.PmsProductFullReductionMapper.BaseResultMap"/>
+        <collection property="memberPriceList" columnPrefix="member_"
+                    resultMap="com.autmaple.mall.tiny.mbg.mapper.PmsMemberPriceMapper.BaseResultMap"/>
+        <collection property="skuStockList" columnPrefix="sku_"
+                    resultMap="com.autmaple.mall.tiny.mbg.mapper.PmsSkuStockMapper.BaseResultMap"/>
+        <collection property="productAttributeValueList" columnPrefix="attribute_"
+                    resultMap="com.autmaple.mall.tiny.mbg.mapper.PmsProductAttributeValueMapper.BaseResultMap"/>
+        <collection property="subjectProductRelationList" column="{productId=id}"
+                    select="selectSubjectProductRelationByProductId"/>
+        <collection property="preferenceAreaProductRelationList" column="{productId=id}"
+                    select="selectPreferenceAreaProductRelationByProductId"/>
+    </resultMap>
+    <select id="getUpdateInfo" resultMap="updateInfoMap">
+        select *
+        from pms_product p
+                 left join pms_product_category pc on pc.id = p.product_category_id
+                 left join pms_product_ladder l on p.id = l.product_id
+                 left join pms_product_full_reduction pf on pf.product_id = p.id
+                 left join pms_member_price m on m.product_id = p.id
+                 left join pms_sku_stock s on s.product_id = p.id
+                 left join pms_product_attribute_value a on a.product_id = p.id
+        where p.id = #{id};
+    </select>
+
+    <select id="selectSubjectProductRelationByProductId"
+            resultMap="com.autmaple.mall.tiny.mbg.mapper.CmsSubjectProductRelationMapper.BaseResultMap">
+        select *
+        from cms_subject_product_relation
+        where product_id = #{productId}
+    </select>
+
+    <select id="selectPreferenceAreaProductRelationByProductId"
+            resultMap="com.autmaple.mall.tiny.mbg.mapper.CmsPrefrenceAreaProductRelationMapper.BaseResultMap">
+        select *
+        from cms_prefrence_area_product_relation
+        where product_id = #{productId}
+    </select>
+</mapper>

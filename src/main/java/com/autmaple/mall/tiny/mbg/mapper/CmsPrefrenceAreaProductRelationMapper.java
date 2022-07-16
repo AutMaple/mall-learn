@@ -2,10 +2,12 @@ package com.autmaple.mall.tiny.mbg.mapper;
 
 import com.autmaple.mall.tiny.mbg.model.CmsPrefrenceAreaProductRelation;
 import com.autmaple.mall.tiny.mbg.model.CmsPrefrenceAreaProductRelationExample;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+@Mapper
 public interface CmsPrefrenceAreaProductRelationMapper {
     long countByExample(CmsPrefrenceAreaProductRelationExample example);
 

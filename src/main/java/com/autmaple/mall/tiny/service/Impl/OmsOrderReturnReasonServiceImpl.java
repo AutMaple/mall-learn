@@ -44,7 +44,7 @@ public class OmsOrderReturnReasonServiceImpl implements OmsOrderReturnReasonServ
 
     @Override
     public List<OmsOrderReturnReason> list(Integer pageSize, Integer pageNum) {
-        PageHelper.startPage(pageNum,pageSize);
+        PageHelper.startPage(pageNum, pageSize);
         OmsOrderReturnReasonExample example = new OmsOrderReturnReasonExample();
         example.setOrderByClause("sort desc");
         return returnReasonMapper.selectByExample(example);
@@ -52,7 +52,7 @@ public class OmsOrderReturnReasonServiceImpl implements OmsOrderReturnReasonServ
 
     @Override
     public int updateStatus(List<Long> ids, Integer status) {
-        if(!status.equals(0) && !status.equals(1)){
+        if (!status.equals(0) && !status.equals(1)) {
             return 0;
         }
         OmsOrderReturnReason returnReason = new OmsOrderReturnReason();
