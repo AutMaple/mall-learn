@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * @ClassName CancelOrderSender
- * @Description TODO 生成取消订单消息的生产者
+ * @Description 生成取消订单消息的生产者
  * @Author AutMaple
  * @Date 2022/6/25 11:41
  * @Version 1.0
