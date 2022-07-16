@@ -78,7 +78,7 @@ public class PmsBrandController {
 
     @ApiOperation("分页展示品牌信息")
     @GetMapping("/list")
-    public CommonResult<CommonPage<PmsBrand>> listBrand(@RequestParam(value = "keyword") String keyword,
+    public CommonResult<CommonPage<PmsBrand>> listBrand(@RequestParam(value = "keyword", required = false) String keyword,
                                                         @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
                                                         @RequestParam(value = "pageSize", defaultValue = "3") Integer pageSize) {
 
