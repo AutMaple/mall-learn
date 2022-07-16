@@ -2,10 +2,12 @@ package com.autmaple.mall.tiny.mbg.mapper;
 
 import com.autmaple.mall.tiny.mbg.model.PmsProductCategory;
 import com.autmaple.mall.tiny.mbg.model.PmsProductCategoryExample;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+@Mapper
 public interface PmsProductCategoryMapper {
     long countByExample(PmsProductCategoryExample example);
 
