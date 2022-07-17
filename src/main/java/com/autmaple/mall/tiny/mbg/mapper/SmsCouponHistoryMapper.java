@@ -2,10 +2,12 @@ package com.autmaple.mall.tiny.mbg.mapper;
 
 import com.autmaple.mall.tiny.mbg.model.SmsCouponHistory;
 import com.autmaple.mall.tiny.mbg.model.SmsCouponHistoryExample;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+@Mapper
 public interface SmsCouponHistoryMapper {
     long countByExample(SmsCouponHistoryExample example);
 
