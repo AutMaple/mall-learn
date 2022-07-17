@@ -37,7 +37,7 @@ public class PmsSkuStockController {
     @PostMapping("/update/{pid}")
     public CommonResult update(@PathVariable Long pid,
                                @RequestBody List<PmsSkuStock> skuStockList){
-        int count = skuStockService.update(id, skuStockList);
+        int count = skuStockService.update(pid, skuStockList);
         return count > 0 ? CommonResult.success(count) : CommonResult.failed();
     }
 }
