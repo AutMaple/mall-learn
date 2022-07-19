@@ -4,9 +4,10 @@
     <resultMap id="returnApplyDetailResultMap" type="com.autmaple.mall.tiny.dto.OmsOrderReturnApplyResult"
                extends="com.autmaple.mall.tiny.mbg.mapper.OmsOrderReturnApplyMapper.BaseResultMap">
         <association property="companyAddress"
-                     resultMap="com.autmaple.mall.tiny.mbg.mapper.OmsCompanyAddressMapper.BaseResultMap"/>
+                     resultMap="com.autmaple.mall.tiny.mbg.mapper.OmsCompanyAddressMapper.BaseResultMap"
+        columnPrefix="ca_"/>
     </resultMap>
-    <select id="getList">
+    <select id="getList" resultMap="com.autmaple.mall.tiny.mbg.mapper.OmsOrderReturnApplyMapper.BaseResultMap">
         select
         id,
         create_time,
@@ -18,28 +19,29 @@
         handle_time
         from
         oms_order_return_apply
-        where
-        <if test="queryParam.id!=null">
-            and id=#{queryParam.id}
-        </if>
-        <if test="queryParam.status!=null">
-            and status = #{queryParam.status}
-        </if>
-        <if test="queryParam.handleMan!=null and queryParam.handleMan!=''">
-            and handle_man = #{queryParam.handleMan}
-        </if>
-        <if test="queryParam.createTime!=null and queryParam.createTime!=''">
-            and create_time like concat(#{queryParam.createTime}, '%')
-        </if>
-        <if test="queryParam.handleTime!=null and queryParam.handleTime!=''">
-            and handle_time like concat(#{queryParam.handleTime}, '%')
-        </if>
-        <if test="queryParam.receiverKeyword!=null and queryParam.receiverKeyword!=''">
-            and (return_name like concat("%", #{queryParam.receiverKeyword}, "%")
-            or return_phone like concat("%", #{queryParam.receiverKeyword}, "%"))
-        </if>
+        <where>
+            <if test="queryParam.id!=null">
+                and id=#{queryParam.id}
+            </if>
+            <if test="queryParam.status!=null">
+                and status = #{queryParam.status}
+            </if>
+            <if test="queryParam.handleMan!=null and queryParam.handleMan!=''">
+                and handle_man = #{queryParam.handleMan}
+            </if>
+            <if test="queryParam.createTime!=null and queryParam.createTime!=''">
+                and create_time like concat(#{queryParam.createTime}, '%')
+            </if>
+            <if test="queryParam.handleTime!=null and queryParam.handleTime!=''">
+                and handle_time like concat(#{queryParam.handleTime}, '%')
+            </if>
+            <if test="queryParam.receiverKeyword!=null and queryParam.receiverKeyword!=''">
+                and (return_name like concat("%", #{queryParam.receiverKeyword}, "%")
+                or return_phone like concat("%", #{queryParam.receiverKeyword}, "%"))
+            </if>
+        </where>
     </select>
-    <select id="getDetail">
+    <select id="getDetail" resultMap="returnApplyDetailResultMap">
         select ra.*,
                oca.id             ca_id,
                oca.address_name   ca_address_name,
