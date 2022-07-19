@@ -79,7 +79,7 @@ public class SmsHomeAdvertiseServiceImpl implements SmsHomeAdvertiseService {
             Date end = null;
             try {
                 start = sf.parse(startStr);
-                end = (sf.parse(endStr);
+                end = sf.parse(endStr);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
