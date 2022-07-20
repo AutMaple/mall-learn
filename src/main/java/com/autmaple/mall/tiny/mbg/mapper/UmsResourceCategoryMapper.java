@@ -2,10 +2,12 @@ package com.autmaple.mall.tiny.mbg.mapper;
 
 import com.autmaple.mall.tiny.mbg.model.UmsResourceCategory;
 import com.autmaple.mall.tiny.mbg.model.UmsResourceCategoryExample;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+@Mapper
 public interface UmsResourceCategoryMapper {
     long countByExample(UmsResourceCategoryExample example);
 
