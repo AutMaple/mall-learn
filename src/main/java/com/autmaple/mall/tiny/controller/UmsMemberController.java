@@ -17,20 +17,23 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/sso")
 public class UmsMemberController {
+
     @Autowired
     private UmsMemberService memberService;
 
     @ApiOperation("获取验证码")
     @RequestMapping(value = "/getAuthCode", method = RequestMethod.GET)
-    public CommonResult getAuthCode(@RequestParam String telephone) {
-        return memberService.generateAuthCode(telephone);
+    public CommonResult<String> getAuthCode(@RequestParam String telephone) {
+        String authCode = memberService.generateAutCode(telephone);
+        return CommonResult.success(authCode);
     }
 
     @ApiOperation("判断验证码是否正确")
     @RequestMapping(value = "/verifyAuthCode", method = RequestMethod.GET)
     public CommonResult verifyAuthCode(@RequestParam String telephone,
                                        @RequestParam String authCode) {
-        return memberService.verifyAuthCode(telephone, authCode);
+
+
     }
 
 }
