@@ -6,6 +6,7 @@ import com.autmaple.mall.tiny.service.MemberReadHistoryService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,46 +25,33 @@ public class MemberReadHistoryController {
     @Autowired
     private MemberReadHistoryService memberReadHistoryService;
 
-    /**
-     * @Author AutMaple
-     * @Description 创建会员商品浏览记录
-     * @Date 2022/6/23 21:17
-     **/
     @ApiOperation("创建会员商品浏览记录")
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @PostMapping("/create")
     public CommonResult create(@RequestBody MemberReadHistory memberReadHistory) {
         int count = memberReadHistoryService.create(memberReadHistory);
-        if (count > 0) {
-            return CommonResult.success(count);
-        }
-        return CommonResult.failed();
+        return count > 0 ? CommonResult.success(count) : CommonResult.failed();
     }
 
 
-    /**
-     * @Author AutMaple
-     * @Description 删除会员浏览记录
-     * @Date 2022/6/23 21:17
-     **/
     @ApiOperation(value = "删除浏览记录")
-    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    @PostMapping("/delete")
     public CommonResult delete(@RequestParam("ids") List<String> ids) {
         int count = memberReadHistoryService.delete(ids);
-        if (count > 0)
-            return CommonResult.success(count);
-        return CommonResult.failed();
+        return count > 0 ? CommonResult.success(count) : CommonResult.failed();
     }
 
+    @ApiOperation("清空浏览记录")
+    @PostMapping("/clear")
+    public CommonResult clear(){
+        memberReadHistoryService.clear();
+        return CommonResult.success(null);
+    }
 
-    /**
-     * @Author AutMaple
-     * @Description 展示会员商品浏览记录
-     * @Date 2022/6/23 21:21
-     **/
     @ApiOperation("展示会员浏览记录")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public CommonResult<List<MemberReadHistory>> list(Long memberId) {
-        List<MemberReadHistory> memberReadHistoryList = memberReadHistoryService.list(memberId);
-        return CommonResult.success(memberReadHistoryList);
+    public CommonResult<Page<MemberReadHistory>> list(@RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
+                                                      @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
+        Page<MemberReadHistory> result = memberReadHistoryService.list(pageNum, pageSize);
+        return CommonResult.success(result);
     }
 }

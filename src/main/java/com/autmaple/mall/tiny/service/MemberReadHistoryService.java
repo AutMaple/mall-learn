@@ -1,6 +1,7 @@
 package com.autmaple.mall.tiny.service;
 
 import com.autmaple.mall.tiny.nosql.mongodb.document.MemberReadHistory;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 
@@ -28,8 +29,16 @@ public interface MemberReadHistoryService {
 
     /**
      * @Author AutMaple
-     * @Description 获取用户的浏览记录
-     * @Date 2022/6/23 21:02
+     * @Description 分页获取用户浏览历史记录
+     * @Date 2022/7/23 15:55
      **/
-    List<MemberReadHistory> list(Long memberId);
+    Page<MemberReadHistory> list(Integer pageNum, Integer pageSize);
+
+    /**
+     * @Author AutMaple
+     * @Description 清空用户浏览记录
+     * @Date 2022/7/23 15:55
+     **/
+    void clear();
+
 }

@@ -1,9 +1,13 @@
 package com.autmaple.mall.tiny.service.Impl;
 
+import com.autmaple.mall.tiny.mbg.model.UmsMember;
 import com.autmaple.mall.tiny.nosql.mongodb.document.MemberReadHistory;
 import com.autmaple.mall.tiny.nosql.mongodb.repository.MemberReadHistoryRepository;
 import com.autmaple.mall.tiny.service.MemberReadHistoryService;
+import com.autmaple.mall.tiny.service.UmsMemberService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -22,9 +26,15 @@ public class MemberReadHistoryServiceImpl implements MemberReadHistoryService {
     @Autowired
     private MemberReadHistoryRepository memberReadHistoryRepository;
 
+    @Autowired
+    private UmsMemberService memberService;
 
     @Override
     public int create(MemberReadHistory memberReadHistory) {
+        UmsMember member = memberService.getCurrentMember();
+        memberReadHistory.setMemberId(member.getId());
+        memberReadHistory.setMemberNickname(member.getNickname());
+        memberReadHistory.setMemberIcon(member.getIcon());
         memberReadHistory.setId(null);
         memberReadHistory.setCreateTime(new Date());
         memberReadHistoryRepository.save(memberReadHistory);
@@ -44,7 +54,15 @@ public class MemberReadHistoryServiceImpl implements MemberReadHistoryService {
     }
 
     @Override
-    public List<MemberReadHistory> list(Long memberId) {
-        return memberReadHistoryRepository.findByMemberIdOrderByCreateTimeDesc(memberId);
+    public Page<MemberReadHistory> list(Integer pageNum, Integer pageSize) {
+        UmsMember member = memberService.getCurrentMember();
+        PageRequest pageable = PageRequest.of(pageNum - 1, pageSize);
+        return memberReadHistoryRepository.findByMemberIdOrderByCreateTimeDesc(member.getId(), pageable);
+    }
+
+    @Override
+    public void clear() {
+        UmsMember member = memberService.getCurrentMember();
+        memberReadHistoryRepository.deleteAllByMemberId(member.getId());
     }
 }
