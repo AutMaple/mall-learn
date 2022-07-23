@@ -21,7 +21,7 @@ public class CancelOrderSender {
     @Autowired
     private AmqpTemplate amqpTemplate;
 
-    public void senderMessage(Long orderId, Long delayTimes) {
+    public void sendMessage(Long orderId, Long delayTimes) {
         // 给延迟消息队列发送消息
         amqpTemplate.convertAndSend(QueueEnum.QUEUE_ORDER_CANCEL.getExchange(), QueueEnum.QUEUE_TTL_ORDER_CANCEL.getRouteKey(), orderId, message -> {
             // 给消息设置延迟时间，单位毫秒

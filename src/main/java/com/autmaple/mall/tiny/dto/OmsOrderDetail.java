@@ -1,5 +1,6 @@
 package com.autmaple.mall.tiny.dto;
 
+import com.autmaple.mall.tiny.mbg.model.OmsOrder;
 import com.autmaple.mall.tiny.mbg.model.OmsOrderItem;
 import com.autmaple.mall.tiny.mbg.model.OmsOrderOperateHistory;
 import io.swagger.annotations.ApiModelProperty;
@@ -13,7 +14,7 @@ import java.util.List;
  * @Date 2022/7/13 20:13
  * @Version 1.0
  **/
-public class OmsOrderDetail {
+public class OmsOrderDetail extends OmsOrder {
     @ApiModelProperty("订单商品列表")
     private List<OmsOrderItem> orderItemList;
 

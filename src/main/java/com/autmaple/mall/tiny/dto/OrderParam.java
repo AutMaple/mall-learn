@@ -1,5 +1,9 @@
 package com.autmaple.mall.tiny.dto;
 
+import io.swagger.annotations.ApiModelProperty;
+
+import java.util.List;
+
 /**
  * @ClassName OrderParam
  * @Description 生成订单时传入的参数
@@ -8,32 +12,19 @@ package com.autmaple.mall.tiny.dto;
  * @Version 1.0
  **/
 public class OrderParam {
-    /**
-     * @Author AutMaple
-     * @Description 收货地址 ID
-     * @Date 2022/6/25 12:00
-     **/
+    @ApiModelProperty("收获地址 ID")
     private Long memberReceiveAddressId;
-    /**
-     * @Author AutMaple
-     * @Description 优惠券 ID
-     * @Date 2022/6/25 12:00
-     **/
+    @ApiModelProperty("优惠券 ID")
     private Long couponId;
 
-    /**
-     * @Author AutMaple
-     * @Description 使用的积分数
-     * @Date 2022/6/25 12:01
-     **/
+    @ApiModelProperty("使用的积分数")
     private Integer useIntegration;
 
-    /**
-     * @Author AutMaple
-     * @Description 支付方式
-     * @Date 2022/6/25 12:01
-     **/
+    @ApiModelProperty("支付方式")
     private Integer payType;
+
+    @ApiModelProperty("被选中的购物车商品 ID")
+    private List<Long> cartIds;
 
     public Long getMemberReceiveAddressId() {
         return memberReceiveAddressId;
@@ -65,5 +56,13 @@ public class OrderParam {
 
     public void setPayType(Integer payType) {
         this.payType = payType;
+    }
+
+    public List<Long> getCartIds() {
+        return cartIds;
+    }
+
+    public void setCartIds(List<Long> cartIds) {
+        this.cartIds = cartIds;
     }
 }
