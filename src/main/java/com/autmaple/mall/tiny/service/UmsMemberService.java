@@ -33,7 +33,7 @@ public interface UmsMemberService {
      * @Description 生成验证码
      * @Date 2022/7/23 11:59
      **/
-    String generateAutCode(String telephone);
+    String generateAuthCode(String telephone);
 
     /**
      * @Author AutMaple
