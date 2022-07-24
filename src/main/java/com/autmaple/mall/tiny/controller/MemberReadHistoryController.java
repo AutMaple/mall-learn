@@ -3,8 +3,8 @@ package com.autmaple.mall.tiny.controller;
 import com.autmaple.mall.tiny.common.api.CommonResult;
 import com.autmaple.mall.tiny.nosql.mongodb.document.MemberReadHistory;
 import com.autmaple.mall.tiny.service.MemberReadHistoryService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
@@ -18,14 +18,14 @@ import java.util.List;
  * @Date 2022/6/23 21:09
  * @Version 1.0
  **/
-@Api(tags = "MemberReadHistoryController", description = "会员商品浏览记录管理")
+@Tag(description = "MemberReadHistoryController", name = "会员商品浏览记录管理")
 @RestController
 @RequestMapping("/member/readHistory")
 public class MemberReadHistoryController {
     @Autowired
     private MemberReadHistoryService memberReadHistoryService;
 
-    @ApiOperation("创建会员商品浏览记录")
+    @Operation(summary="创建会员商品浏览记录")
     @PostMapping("/create")
     public CommonResult create(@RequestBody MemberReadHistory memberReadHistory) {
         int count = memberReadHistoryService.create(memberReadHistory);
@@ -33,21 +33,21 @@ public class MemberReadHistoryController {
     }
 
 
-    @ApiOperation(value = "删除浏览记录")
+    @Operation(summary = "删除浏览记录")
     @PostMapping("/delete")
     public CommonResult delete(@RequestParam("ids") List<String> ids) {
         int count = memberReadHistoryService.delete(ids);
         return count > 0 ? CommonResult.success(count) : CommonResult.failed();
     }
 
-    @ApiOperation("清空浏览记录")
+    @Operation(summary="清空浏览记录")
     @PostMapping("/clear")
     public CommonResult clear(){
         memberReadHistoryService.clear();
         return CommonResult.success(null);
     }
 
-    @ApiOperation("展示会员浏览记录")
+    @Operation(summary="展示会员浏览记录")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public CommonResult<Page<MemberReadHistory>> list(@RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
                                                       @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {

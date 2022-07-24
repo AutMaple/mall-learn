@@ -1,6 +1,6 @@
 package com.autmaple.mall.tiny.mbg.model;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -13,7 +13,7 @@ public class PmsCommentReplay implements Serializable {
     private String memberIcon;
     private String content;
     private Date createTime;
-    @ApiModelProperty(value = "评论人员类型；0->会员；1->管理员")
+    @Schema(description = "评论人员类型；0->会员；1->管理员")
     private Integer type;
 
     public Long getId() {

@@ -1,15 +1,15 @@
 package com.autmaple.mall.tiny.mbg.model;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.Serializable;
 
 public class UmsRoleResourceRelation implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
-    @ApiModelProperty(value = "角色ID")
+    @Schema(description = "角色ID")
     private Long roleId;
-    @ApiModelProperty(value = "资源ID")
+    @Schema(description = "资源ID")
     private Long resourceId;
 
     public Long getId() {

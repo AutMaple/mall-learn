@@ -4,7 +4,7 @@ import com.autmaple.mall.tiny.mbg.model.CmsSubject;
 import com.autmaple.mall.tiny.mbg.model.PmsBrand;
 import com.autmaple.mall.tiny.mbg.model.PmsProduct;
 import com.autmaple.mall.tiny.mbg.model.SmsHomeAdvertise;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.List;
 
@@ -16,22 +16,22 @@ import java.util.List;
  * @Version 1.0
  **/
 public class HomeContentResult {
-    @ApiModelProperty("轮播广告")
+    @Schema(description="轮播广告")
     private List<SmsHomeAdvertise> advertiseList;
 
-    @ApiModelProperty("推荐品牌")
+    @Schema(description="推荐品牌")
     private List<PmsBrand> brandList;
 
-    @ApiModelProperty("当前秒杀场次")
+    @Schema(description="当前秒杀场次")
     private HomeFlashPromotion homeFlashPromotion;
 
-    @ApiModelProperty("新品推荐")
+    @Schema(description="新品推荐")
     private List<PmsProduct> newProductList;
 
-    @ApiModelProperty("人气推荐")
+    @Schema(description="人气推荐")
     private List<PmsProduct> hotProductList;
 
-    @ApiModelProperty("推荐主题")
+    @Schema(description="推荐主题")
     private List<CmsSubject> subjectLis;
 
     public List<SmsHomeAdvertise> getAdvertiseList() {

@@ -4,8 +4,8 @@ import com.autmaple.mall.tiny.common.api.CommonPage;
 import com.autmaple.mall.tiny.common.api.CommonResult;
 import com.autmaple.mall.tiny.mbg.model.CmsSubject;
 import com.autmaple.mall.tiny.service.CmsSubjectService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,21 +21,21 @@ import java.util.List;
  * @Date 2022/7/11 21:17
  * @Version 1.0
  **/
-@Api(tags = "CmsSubjectController", description = "商品专题管理")
+@Tag(description = "CmsSubjectController", name = "商品专题管理")
 @RestController
 @RequestMapping("/subject")
 public class CmsSubjectController {
     @Autowired
     CmsSubjectService subjectService;
 
-    @ApiOperation("获取全部商品专题")
+    @Operation(summary = "获取全部商品专题")
     @GetMapping("/listAll")
     public CommonResult<List<CmsSubject>> listAll() {
         List<CmsSubject> cmsSubjects = subjectService.listAll();
         return CommonResult.success(cmsSubjects);
     }
 
-    @ApiOperation("根据专题名称分页获取商品专题")
+    @Operation(summary = "根据专题名称分页获取商品专题")
     @GetMapping("/list")
     public CommonResult<CommonPage<CmsSubject>> getList(@RequestParam(value = "keyword", required = false) String keyword,
                                                         @RequestParam(value = "pageNum", required = false, defaultValue = "1") Integer pageNum,

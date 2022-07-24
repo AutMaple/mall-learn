@@ -1,6 +1,6 @@
 package com.autmaple.mall.tiny.mbg.model;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -14,12 +14,12 @@ public class PmsProductOperateLog implements Serializable {
     private BigDecimal priceNew;
     private BigDecimal salePriceOld;
     private BigDecimal salePriceNew;
-    @ApiModelProperty(value = "赠送的积分")
+    @Schema(description = "赠送的积分")
     private Integer giftPointOld;
     private Integer giftPointNew;
     private Integer usePointLimitOld;
     private Integer usePointLimitNew;
-    @ApiModelProperty(value = "操作人")
+    @Schema(description = "操作人")
     private String operateMan;
     private Date createTime;
 

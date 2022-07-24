@@ -1,6 +1,6 @@
 package com.autmaple.mall.tiny.mbg.model;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.Serializable;
 
@@ -11,7 +11,7 @@ public class CmsPrefrenceArea implements Serializable {
     private String subTitle;
     private Integer sort;
     private Integer showStatus;
-    @ApiModelProperty(value = "展示图片")
+    @Schema(description = "展示图片")
     private byte[] pic;
 
     public Long getId() {

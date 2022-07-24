@@ -3,8 +3,8 @@ package com.autmaple.mall.tiny.controller;
 import com.autmaple.mall.tiny.common.api.CommonResult;
 import com.autmaple.mall.tiny.mbg.model.OmsOrderSetting;
 import com.autmaple.mall.tiny.service.OmsOrderSettingService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
  * @Date 2022/7/16 08:52
  * @Version 1.0
  **/
-@Api(tags = "OmsOrderSettingController", description = "订单设置管理")
+@Tag(description = "OmsOrderSettingController", name = "订单设置管理")
 @RestController
 @RequestMapping("/orderSetting")
 public class OmsOrderSettingController {
@@ -23,7 +23,7 @@ public class OmsOrderSettingController {
     @Autowired
     private OmsOrderSettingService settingService;
 
-    @ApiOperation("获取指定订单设置的详细信息")
+    @Operation(summary="获取指定订单设置的详细信息")
     @GetMapping("/{id}")
     public CommonResult<OmsOrderSetting> getItem(@PathVariable Long id) {
         OmsOrderSetting orderSetting = settingService.getItem(id);

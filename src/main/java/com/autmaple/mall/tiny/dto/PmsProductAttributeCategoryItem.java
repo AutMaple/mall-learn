@@ -1,7 +1,7 @@
 package com.autmaple.mall.tiny.dto;
 
 import com.autmaple.mall.tiny.mbg.model.PmsProductAttribute;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import java.util.List;
  * @Version 1.0
  **/
 public class PmsProductAttributeCategoryItem {
-    @ApiModelProperty("商品属性列表")
+    @Schema(description="商品属性列表")
     private List<PmsProductAttribute> productAttributeList;
 
     public List<PmsProductAttribute> getProductAttributeList() {

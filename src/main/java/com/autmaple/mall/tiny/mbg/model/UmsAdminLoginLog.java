@@ -1,6 +1,6 @@
 package com.autmaple.mall.tiny.mbg.model;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -12,7 +12,7 @@ public class UmsAdminLoginLog implements Serializable {
     private Date createTime;
     private String ip;
     private String address;
-    @ApiModelProperty(value = "浏览器登录类型")
+    @Schema(description = "浏览器登录类型")
     private String userAgent;
 
     public Long getId() {

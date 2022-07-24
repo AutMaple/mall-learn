@@ -1,6 +1,6 @@
 package com.autmaple.mall.tiny.dto;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.validation.constraints.NotEmpty;
 
@@ -13,15 +13,15 @@ import javax.validation.constraints.NotEmpty;
  **/
 public class UpdateAdminPasswordParam {
     @NotEmpty(message = "用户名不能为空")
-    @ApiModelProperty(value = "用户名", required = true)
+    @Schema(description="用户名", required = true)
     private String username;
 
     @NotEmpty(message = "旧密码不能为空")
-    @ApiModelProperty(value = "旧密码", required = true)
+    @Schema(description="旧密码", required = true)
     private String oldPassword;
 
     @NotEmpty(message = "新密码不能为空")
-    @ApiModelProperty(value = "新密码", required = true)
+    @Schema(description="新密码", required = true)
     private String newPassword;
 
     public String getUsername() {

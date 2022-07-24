@@ -1,7 +1,7 @@
 package com.autmaple.mall.tiny.dto;
 
 import com.autmaple.mall.tiny.mbg.model.PmsProduct;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.math.BigDecimal;
 
@@ -13,13 +13,13 @@ import java.math.BigDecimal;
  * @Version 1.0
  **/
 public class FlashPromotionProduct extends PmsProduct {
-    @ApiModelProperty("秒杀价格")
+    @Schema(description="秒杀价格")
     private BigDecimal flashPromotionPrice;
 
 
-    @ApiModelProperty("用于秒杀的数量")
+    @Schema(description="用于秒杀的数量")
     private Integer flashPromotionCount;
 
-    @ApiModelProperty("秒杀限购的数量")
+    @Schema(description="秒杀限购的数量")
     private Integer flashPromotionLimit;
 }

@@ -1,6 +1,6 @@
 package com.autmaple.mall.tiny.mbg.model;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.Serializable;
 
@@ -8,9 +8,9 @@ public class PmsProductAttributeCategory implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
     private String name;
-    @ApiModelProperty(value = "属性数量")
+    @Schema(description = "属性数量")
     private Integer attributeCount;
-    @ApiModelProperty(value = "参数数量")
+    @Schema(description = "参数数量")
     private Integer paramCount;
 
     public Long getId() {

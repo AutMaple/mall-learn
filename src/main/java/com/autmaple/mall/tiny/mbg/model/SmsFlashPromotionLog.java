@@ -1,6 +1,6 @@
 package com.autmaple.mall.tiny.mbg.model;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -12,7 +12,7 @@ public class SmsFlashPromotionLog implements Serializable {
     private Long productId;
     private String memberPhone;
     private String productName;
-    @ApiModelProperty(value = "会员订阅时间")
+    @Schema(description = "会员订阅时间")
     private Date subscribeTime;
     private Date sendTime;
 

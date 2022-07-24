@@ -1,6 +1,6 @@
 package com.autmaple.mall.tiny.dto;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * @ClassName OmsOrderDeliveryParam
@@ -10,13 +10,13 @@ import io.swagger.annotations.ApiModelProperty;
  * @Version 1.0
  **/
 public class OmsOrderDeliveryParam {
-    @ApiModelProperty("订单 ID")
+    @Schema(description="订单 ID")
     private Long orderId;
 
-    @ApiModelProperty("物流公司")
+    @Schema(description="物流公司")
     private String deliveryCompany;
 
-    @ApiModelProperty("物流单号")
+    @Schema(description="物流单号")
     private String deliverySn;
 
     public Long getOrderId() {

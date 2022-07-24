@@ -1,6 +1,6 @@
 package com.autmaple.mall.tiny.dto;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.List;
 
@@ -12,18 +12,18 @@ import java.util.List;
  * @Version 1.0
  **/
 public class OrderParam {
-    @ApiModelProperty("收获地址 ID")
+    @Schema(description="收获地址 ID")
     private Long memberReceiveAddressId;
-    @ApiModelProperty("优惠券 ID")
+    @Schema(description="优惠券 ID")
     private Long couponId;
 
-    @ApiModelProperty("使用的积分数")
+    @Schema(description="使用的积分数")
     private Integer useIntegration;
 
-    @ApiModelProperty("支付方式")
+    @Schema(description="支付方式")
     private Integer payType;
 
-    @ApiModelProperty("被选中的购物车商品 ID")
+    @Schema(description="被选中的购物车商品 ID")
     private List<Long> cartIds;
 
     public Long getMemberReceiveAddressId() {

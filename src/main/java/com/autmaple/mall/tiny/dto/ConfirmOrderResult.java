@@ -2,7 +2,7 @@ package com.autmaple.mall.tiny.dto;
 
 import com.autmaple.mall.tiny.mbg.model.UmsIntegrationConsumeSetting;
 import com.autmaple.mall.tiny.mbg.model.UmsMemberReceiveAddress;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -15,22 +15,22 @@ import java.util.List;
  * @Version 1.0
  **/
 public class ConfirmOrderResult {
-    @ApiModelProperty("包含优惠信息的购物车信息")
+    @Schema(description="包含优惠信息的购物车信息")
     private List<CartPromotionItem> cartPromotionItemList;
 
-    @ApiModelProperty("用户收获地址列表")
+    @Schema(description="用户收获地址列表")
     private List<UmsMemberReceiveAddress> memberReceiveAddressList;
 
-    @ApiModelProperty("用户可用优惠券列表")
+    @Schema(description="用户可用优惠券列表")
     private List<SmsCouponHistoryDetail> couponHistoryDetailList;
 
-    @ApiModelProperty("积分使用规则")
+    @Schema(description="积分使用规则")
     private UmsIntegrationConsumeSetting integrationConsumeSetting;
 
-    @ApiModelProperty("会员持有的积分")
+    @Schema(description="会员持有的积分")
     private Integer memberIntegration;
 
-    @ApiModelProperty("计算的金额")
+    @Schema(description="计算的金额")
     private CalcAmount calcAmount;
 
     public List<CartPromotionItem> getCartPromotionItemList() {
@@ -82,16 +82,16 @@ public class ConfirmOrderResult {
     }
 
     public static class CalcAmount{
-        @ApiModelProperty("订单商品总金额")
+        @Schema(description="订单商品总金额")
         private BigDecimal totalAmount;
 
-        @ApiModelProperty("运费")
+        @Schema(description="运费")
         private BigDecimal freightAmount;
 
-        @ApiModelProperty("活动优惠")
+        @Schema(description="活动优惠")
         private BigDecimal promotionAmount;
 
-        @ApiModelProperty("应付金额")
+        @Schema(description="应付金额")
         private BigDecimal payAmount;
 
         public BigDecimal getTotalAmount() {

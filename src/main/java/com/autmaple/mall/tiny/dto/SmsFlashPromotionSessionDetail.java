@@ -1,7 +1,7 @@
 package com.autmaple.mall.tiny.dto;
 
 import com.autmaple.mall.tiny.mbg.model.SmsFlashPromotionSession;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * @ClassName SmsFlashPromotionSessionDetail
@@ -12,7 +12,7 @@ import io.swagger.annotations.ApiModelProperty;
  **/
 public class SmsFlashPromotionSessionDetail extends SmsFlashPromotionSession {
 
-    @ApiModelProperty("商品数量")
+    @Schema(description="商品数量")
     private Long productCount;
 
     public Long getProductCount() {

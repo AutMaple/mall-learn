@@ -71,28 +71,26 @@
 
 
     <select id="getAvailableCouponList" resultMap="com.autmaple.mall.tiny.mbg.mapper.SmsCouponMapper.BaseResultMap">
-        select *
-        from sms_coupon
-        where use_type = 0
-        and start_time< now()
-        and end_time > now()
-        union (
-        select c.*
-        from sms_coupon_product_category_relation cpc left join sms_coupon c on cpc.coupon_id = c.id
-        where c.use_type = 1
-        and c.start_time< now()
-        and c.end_time > now()
-        and cpc.product_category_id = #{productCategoryId}
-        )
-        union(
-        select c.*
-        form sms_coupon_product_relation cp
-        left join sms_coupon c on cp.coupon_id = c.id
-        where
-        c.use_type = 2
-        and c.start_time< now()
-        and c.end_time > now()
-        and cp.product_id = #{productId}
-        )
+        SELECT *
+        FROM sms_coupon
+        WHERE use_type = 0
+          AND start_time &lt; NOW()
+          AND end_time &gt; NOW()
+        UNION
+        (SELECT c.*
+         FROM sms_coupon_product_category_relation cpc
+                  LEFT JOIN sms_coupon c ON cpc.coupon_id = c.id
+         WHERE c.use_type = 1
+           AND c.start_time &lt; now()
+           AND c.end_time &gt; now()
+           AND cpc.product_category_id = #{productCategoryId})
+        UNION
+        (select c.*
+         from sms_coupon_product_relation cp
+                  LEFT JOIN sms_coupon c on cp.coupon_id = c.id
+         where c.use_type = 2
+           and c.start_time &lt; now()
+           and c.end_time &gt; now()
+           and cp.product_id = #{productId})
     </select>
 </mapper>

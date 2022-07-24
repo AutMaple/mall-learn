@@ -1,6 +1,6 @@
 package com.autmaple.mall.tiny.mbg.model;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.Serializable;
 
@@ -8,9 +8,9 @@ public class CmsHelpCategory implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
     private String name;
-    @ApiModelProperty(value = "分类图标")
+    @Schema(description = "分类图标")
     private String icon;
-    @ApiModelProperty(value = "专题数量")
+    @Schema(description = "专题数量")
     private Integer helpCount;
     private Integer showStatus;
     private Integer sort;

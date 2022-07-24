@@ -1,6 +1,6 @@
 package com.autmaple.mall.tiny.dto;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * @ClassName PmsProductResult
@@ -10,7 +10,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @Version 1.0
  **/
 public class PmsProductResult extends PmsProductParam {
-    @ApiModelProperty("商品所选分类的父 id")
+    @Schema(description="商品所选分类的父 id")
     private Long cateParentId;
 
     public Long getCateParentId() {

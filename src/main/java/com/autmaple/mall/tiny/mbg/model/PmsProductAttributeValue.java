@@ -1,6 +1,6 @@
 package com.autmaple.mall.tiny.mbg.model;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.Serializable;
 
@@ -9,7 +9,7 @@ public class PmsProductAttributeValue implements Serializable {
     private Long id;
     private Long productId;
     private Long productAttributeId;
-    @ApiModelProperty(value = "手动添加规格或参数的值，参数单值，规格有多个时以逗号隔开")
+    @Schema(description = "手动添加规格或参数的值，参数单值，规格有多个时以逗号隔开")
     private String value;
 
     public Long getId() {

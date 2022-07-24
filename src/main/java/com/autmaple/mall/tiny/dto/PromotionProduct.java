@@ -4,7 +4,7 @@ import com.autmaple.mall.tiny.mbg.model.PmsProduct;
 import com.autmaple.mall.tiny.mbg.model.PmsProductFullReduction;
 import com.autmaple.mall.tiny.mbg.model.PmsProductLadder;
 import com.autmaple.mall.tiny.mbg.model.PmsSkuStock;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.List;
 
@@ -16,11 +16,11 @@ import java.util.List;
  * @Version 1.0
  **/
 public class PromotionProduct extends PmsProduct {
-    @ApiModelProperty("商品库存信息")
+    @Schema(description="商品库存信息")
     private List<PmsSkuStock> skuStockList;
-    @ApiModelProperty("商品打折信息")
+    @Schema(description="商品打折信息")
     private List<PmsProductLadder> productLadderList;
-    @ApiModelProperty("商品満减信息")
+    @Schema(description="商品満减信息")
     private List<PmsProductFullReduction> productFullReductionList;
 
     public List<PmsSkuStock> getSkuStockList() {

@@ -1,6 +1,6 @@
 package com.autmaple.mall.tiny.dto;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.math.BigDecimal;
 
@@ -12,28 +12,28 @@ import java.math.BigDecimal;
  * @Version 1.0
  **/
 public class OmsUpdateStatusParam {
-    @ApiModelProperty("服务单号")
+    @Schema(description="服务单号")
     private Long id;
 
-    @ApiModelProperty("收货地址关联 ID")
+    @Schema(description="收货地址关联 ID")
     private Long companyAddressId;
 
-    @ApiModelProperty("确认退款金额")
+    @Schema(description="确认退款金额")
     private BigDecimal returnAmount;
 
-    @ApiModelProperty("处理备注")
+    @Schema(description="处理备注")
     private String handleNote;
 
-    @ApiModelProperty("处理人")
+    @Schema(description="处理人")
     private String handleMan;
 
-    @ApiModelProperty("收货备注")
+    @Schema(description="收货备注")
     private String receiveNote;
 
-    @ApiModelProperty("收货人")
+    @Schema(description="收货人")
     private String receiveMan;
 
-    @ApiModelProperty("申请状态： 1->退货中；2->已完成；3->已拒绝")
+    @Schema(description="申请状态： 1->退货中；2->已完成；3->已拒绝")
     private Integer status;
 
     public Long getId() {

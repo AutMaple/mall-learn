@@ -3,7 +3,7 @@ package com.autmaple.mall.tiny.dto;
 import com.autmaple.mall.tiny.mbg.model.PmsProduct;
 import com.autmaple.mall.tiny.mbg.model.PmsProductAttribute;
 import com.autmaple.mall.tiny.mbg.model.PmsSkuStock;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.List;
 
@@ -15,9 +15,9 @@ import java.util.List;
  * @Version 1.0
  **/
 public class CartProduct extends PmsProduct {
-    @ApiModelProperty("商品属性列表")
+    @Schema(description = "商品属性列表")
     private List<PmsProductAttribute> productAttributeList;
-    @ApiModelProperty("商品 SKU 库存列表")
+    @Schema(description="商品 SKU 库存列表")
     private List<PmsSkuStock> skuStockList;
 
     public List<PmsProductAttribute> getProductAttributeList() {

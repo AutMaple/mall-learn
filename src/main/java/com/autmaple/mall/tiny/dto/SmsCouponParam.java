@@ -3,7 +3,7 @@ package com.autmaple.mall.tiny.dto;
 import com.autmaple.mall.tiny.mbg.model.SmsCoupon;
 import com.autmaple.mall.tiny.mbg.model.SmsCouponProductCategoryRelation;
 import com.autmaple.mall.tiny.mbg.model.SmsCouponProductRelation;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.List;
 
@@ -15,10 +15,10 @@ import java.util.List;
  * @Version 1.0
  **/
 public class SmsCouponParam extends SmsCoupon {
-    @ApiModelProperty("优惠券绑定的商品")
+    @Schema(description="优惠券绑定的商品")
     private List<SmsCouponProductRelation> productRelationList;
 
-    @ApiModelProperty("优惠券绑定的商品分类")
+    @Schema(description="优惠券绑定的商品分类")
     private List<SmsCouponProductCategoryRelation> productCategoryRelationList;
 
     public List<SmsCouponProductRelation> getProductRelationList() {

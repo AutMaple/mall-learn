@@ -1,6 +1,6 @@
 package com.autmaple.mall.tiny.mbg.model;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.Serializable;
 
@@ -8,11 +8,11 @@ public class UmsMemberTask implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
     private String name;
-    @ApiModelProperty(value = "赠送成长值")
+    @Schema(description = "赠送成长值")
     private Integer growth;
-    @ApiModelProperty(value = "赠送积分")
+    @Schema(description = "赠送积分")
     private Integer intergration;
-    @ApiModelProperty(value = "任务类型：0->新手任务；1->日常任务")
+    @Schema(description = "任务类型：0->新手任务；1->日常任务")
     private Integer type;
 
     public Long getId() {

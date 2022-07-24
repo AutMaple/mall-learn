@@ -1,6 +1,6 @@
 package com.autmaple.mall.tiny.mbg.model;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -8,11 +8,11 @@ import java.util.Date;
 public class UmsResourceCategory implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
-    @ApiModelProperty(value = "创建时间")
+    @Schema(description = "创建时间")
     private Date createTime;
-    @ApiModelProperty(value = "分类名称")
+    @Schema(description = "分类名称")
     private String name;
-    @ApiModelProperty(value = "排序")
+    @Schema(description = "排序")
     private Integer sort;
 
     public Long getId() {

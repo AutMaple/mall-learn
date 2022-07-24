@@ -1,7 +1,7 @@
 package com.autmaple.mall.tiny.dto;
 
 import com.autmaple.mall.tiny.mbg.model.UmsMenu;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import java.util.List;
  * @Version 1.0
  **/
 public class UmsMenuNode extends UmsMenu {
-    @ApiModelProperty("子级菜单")
+    @Schema(description="子级菜单")
     private List<UmsMenuNode> children;
 
     public List<UmsMenuNode> getChildren() {

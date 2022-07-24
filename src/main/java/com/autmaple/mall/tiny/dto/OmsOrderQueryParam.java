@@ -1,6 +1,6 @@
 package com.autmaple.mall.tiny.dto;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * @ClassName OmsOrderQueryParam
@@ -10,22 +10,22 @@ import io.swagger.annotations.ApiModelProperty;
  * @Version 1.0
  **/
 public class OmsOrderQueryParam {
-    @ApiModelProperty(value = "订单编号")
+    @Schema(description="订单编号")
     private String orderSn;
 
-    @ApiModelProperty(value = "收货人姓名或者号码")
+    @Schema(description= "收货人姓名或者号码")
     private String receiveKeyword;
 
-    @ApiModelProperty(value = "订单状态: 0->待付款; 1->待发货; 2->已发货; 3->已完成; 4->已关闭; 5->无效订单")
+    @Schema(description= "订单状态: 0->待付款; 1->待发货; 2->已发货; 3->已完成; 4->已关闭; 5->无效订单")
     private Integer status;
 
-    @ApiModelProperty(value = "订单类型: 0->正常订单；1->秒杀订单")
+    @Schema(description="订单类型: 0->正常订单；1->秒杀订单")
     private Integer orderType;
 
-    @ApiModelProperty(value = "订单来源: 0->PC订单; 1->App订单")
+    @Schema(description= "订单来源: 0->PC订单; 1->App订单")
     private Integer sourceType;
 
-    @ApiModelProperty(value = "订单提交时间")
+    @Schema(description= "订单提交时间")
     private String createTime;
 
     public String getOrderSn() {

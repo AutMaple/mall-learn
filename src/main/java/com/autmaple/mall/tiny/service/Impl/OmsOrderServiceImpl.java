@@ -11,6 +11,7 @@ import com.autmaple.mall.tiny.mbg.model.OmsOrderOperateHistory;
 import com.autmaple.mall.tiny.service.OmsOrderService;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
@@ -23,6 +24,7 @@ import java.util.stream.Collectors;
  * @Date 2022/7/13 20:46
  * @Version 1.0
  **/
+@Service
 public class OmsOrderServiceImpl implements OmsOrderService {
 
     @Autowired

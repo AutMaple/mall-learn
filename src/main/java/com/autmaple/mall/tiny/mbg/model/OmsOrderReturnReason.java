@@ -1,6 +1,6 @@
 package com.autmaple.mall.tiny.mbg.model;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -8,12 +8,12 @@ import java.util.Date;
 public class OmsOrderReturnReason implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
-    @ApiModelProperty(value = "退货类型")
+    @Schema(description = "退货类型")
     private String name;
     private Integer sort;
-    @ApiModelProperty(value = "状态：0->不启用；1->启用")
+    @Schema(description = "状态：0->不启用；1->启用")
     private Integer status;
-    @ApiModelProperty(value = "添加时间")
+    @Schema(description = "添加时间")
     private Date createTime;
 
     public Long getId() {

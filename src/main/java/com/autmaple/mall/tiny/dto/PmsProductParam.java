@@ -1,7 +1,7 @@
 package com.autmaple.mall.tiny.dto;
 
 import com.autmaple.mall.tiny.mbg.model.*;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.List;
 import java.util.Objects;
@@ -15,25 +15,25 @@ import java.util.Objects;
  **/
 public class PmsProductParam extends PmsProduct {
 
-    @ApiModelProperty("商品阶梯价格设置")
+    @Schema(description="商品阶梯价格设置")
     private List<PmsProductLadder> productLadderList;
 
-    @ApiModelProperty("商品満减价格设置")
+    @Schema(description="商品満减价格设置")
     private List<PmsProductFullReduction> productFullReductionList;
 
-    @ApiModelProperty("商品会员价格设置")
+    @Schema(description="商品会员价格设置")
     private List<PmsMemberPrice> memberPriceList;
 
-    @ApiModelProperty("商品的 sku 库存信息")
+    @Schema(description="商品的 sku 库存信息")
     private List<PmsSkuStock> skuStockList;
 
-    @ApiModelProperty("商品参数及自定义规格属性")
+    @Schema(description="商品参数及自定义规格属性")
     private List<PmsProductAttributeValue> productAttributeValueList;
 
-    @ApiModelProperty("专题和商品的关系")
+    @Schema(description="专题和商品的关系")
     private List<CmsSubjectProductRelation> subjectProductRelationList;
 
-    @ApiModelProperty("优选专区和商品的关系")
+    @Schema(description="优选专区和商品的关系")
     private List<CmsPrefrenceAreaProductRelation> preferenceAreaProductRelationList;
 
     @Override

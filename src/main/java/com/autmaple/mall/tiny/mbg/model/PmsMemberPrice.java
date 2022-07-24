@@ -1,6 +1,6 @@
 package com.autmaple.mall.tiny.mbg.model;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -10,7 +10,7 @@ public class PmsMemberPrice implements Serializable {
     private Long id;
     private Long productId;
     private Long memberLevelId;
-    @ApiModelProperty(value = "会员价格")
+    @Schema(description = "会员价格")
     private BigDecimal memberPrice;
     private String memberLevelName;
 

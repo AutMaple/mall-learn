@@ -1,6 +1,6 @@
 package com.autmaple.mall.tiny.dto;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.Date;
 import java.util.List;
@@ -13,19 +13,19 @@ import java.util.List;
  * @Version 1.0
  **/
 public class HomeFlashPromotion {
-    @ApiModelProperty("本场秒杀的开始时间")
+    @Schema(description="本场秒杀的开始时间")
     private Date startTime;
 
-    @ApiModelProperty("本场秒杀的结束时间")
+    @Schema(description="本场秒杀的结束时间")
     private Date endTime;
 
-    @ApiModelProperty("下场开始的时间")
+    @Schema(description="下场开始的时间")
     private Date nextStartTime;
 
-    @ApiModelProperty("下场结束时间")
+    @Schema(description="下场结束时间")
     private Date nextEndTime;
 
-    @ApiModelProperty("属于该秒杀活动的商品")
+    @Schema(description="属于该秒杀活动的商品")
     private List<FlashPromotionProduct> productList;
 
     public Date getStartTime() {

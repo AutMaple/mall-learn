@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.web.FilterInvocation;
 import org.springframework.security.web.access.intercept.FilterInvocationSecurityMetadataSource;
+import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 
 import javax.annotation.PostConstruct;
@@ -18,6 +19,7 @@ import java.util.*;
  * @Date 2022/7/20 21:46
  * @Version 1.0
  **/
+@Component
 public class DynamicSecurityMetaDataSource implements FilterInvocationSecurityMetadataSource {
     private static Map<String, ConfigAttribute> configAttributeMap = null;
 

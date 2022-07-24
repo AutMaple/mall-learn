@@ -1,6 +1,6 @@
 package com.autmaple.mall.tiny.dto;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * @ClassName OmsReturnApplyQueryParam
@@ -11,22 +11,22 @@ import io.swagger.annotations.ApiModelProperty;
  **/
 public class OmsReturnApplyQueryParam {
 
-    @ApiModelProperty("服务单号")
+    @Schema(description="服务单号")
     private Long id;
 
-    @ApiModelProperty("收获人姓名或者号码")
+    @Schema(description="收获人姓名或者号码")
     private String receiverKeyword;
 
-    @ApiModelProperty("申请状态: 0->待处理; 1->退货中；2->已完成; 3->已拒绝")
+    @Schema(description="申请状态: 0->待处理; 1->退货中；2->已完成; 3->已拒绝")
     private Integer status;
 
-    @ApiModelProperty("申请时间")
+    @Schema(description="申请时间")
     private String createTime;
 
-    @ApiModelProperty("处理人员")
+    @Schema(description="处理人员")
     private String handleMan;
 
-    @ApiModelProperty("处理时间")
+    @Schema(description="处理时间")
     private String handleTime;
 
     public Long getId() {

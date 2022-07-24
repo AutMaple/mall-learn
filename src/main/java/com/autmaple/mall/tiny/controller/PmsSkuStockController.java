@@ -3,8 +3,8 @@ package com.autmaple.mall.tiny.controller;
 import com.autmaple.mall.tiny.common.api.CommonResult;
 import com.autmaple.mall.tiny.mbg.model.PmsSkuStock;
 import com.autmaple.mall.tiny.service.PmsSkuStockService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +17,7 @@ import java.util.List;
  * @Date 2022/7/17 09:42
  * @Version 1.0
  **/
-@Api(tags = "PmsSkuStockController", description = "sku 商品库存管理")
+@Tag(description = "PmsSkuStockController", name = "sku 商品库存管理")
 @RestController
 @RequestMapping("/sku")
 public class PmsSkuStockController {
@@ -25,7 +25,7 @@ public class PmsSkuStockController {
     @Autowired
     private PmsSkuStockService skuStockService;
 
-    @ApiOperation("根据商品 ID 和 sku 编码模糊搜索 sku 库存")
+    @Operation(summary="根据商品 ID 和 sku 编码模糊搜索 sku 库存")
     @GetMapping("/{pid}")
     public CommonResult<List<PmsSkuStock>> getList(@PathVariable Long pid,
                                                    @RequestParam(value = "keyword", required = false) String keyword){
@@ -33,7 +33,7 @@ public class PmsSkuStockController {
         return CommonResult.success(skuStockList);
     }
 
-    @ApiOperation("批量更新 sku 库存信息")
+    @Operation(summary="批量更新 sku 库存信息")
     @PostMapping("/update/{pid}")
     public CommonResult update(@PathVariable Long pid,
                                @RequestBody List<PmsSkuStock> skuStockList){

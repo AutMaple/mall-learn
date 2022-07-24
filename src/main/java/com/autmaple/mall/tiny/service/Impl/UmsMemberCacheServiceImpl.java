@@ -31,7 +31,7 @@ public class UmsMemberCacheServiceImpl implements UmsMemberCacheService {
     @Value("${redis.expire.common}")
     private Long REDIS_EXPIRE;
 
-    @Value("${redis.expire.autoCode}")
+    @Value("${redis.expire.authCode}")
     private Long REDIS_EXPIRE_AUTH_CODE;
 
     @Value("${redis.key.member}")

@@ -2,7 +2,7 @@ package com.autmaple.mall.tiny.dto;
 
 import com.autmaple.mall.tiny.mbg.model.PmsProduct;
 import com.autmaple.mall.tiny.mbg.model.SmsFlashPromotionProductRelation;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * @ClassName SmsFlashPromotionProduct
@@ -13,7 +13,7 @@ import io.swagger.annotations.ApiModelProperty;
  **/
 public class SmsFlashPromotionProduct extends SmsFlashPromotionProductRelation {
 
-    @ApiModelProperty("限时购关联的商品")
+    @Schema(description="限时购关联的商品")
     private PmsProduct product;
 
     public PmsProduct getProduct() {

@@ -1,6 +1,6 @@
 package com.autmaple.mall.tiny.mbg.model;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.Serializable;
 
@@ -9,9 +9,9 @@ public class SmsCouponProductCategoryRelation implements Serializable {
     private Long id;
     private Long couponId;
     private Long productCategoryId;
-    @ApiModelProperty(value = "产品分类名称")
+    @Schema(description = "产品分类名称")
     private String productCategoryName;
-    @ApiModelProperty(value = "父分类名称")
+    @Schema(description = "父分类名称")
     private String parentCategoryName;
 
     public Long getId() {

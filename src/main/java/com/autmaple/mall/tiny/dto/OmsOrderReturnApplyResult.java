@@ -1,7 +1,7 @@
 package com.autmaple.mall.tiny.dto;
 
 import com.autmaple.mall.tiny.mbg.model.OmsCompanyAddress;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * @ClassName OmsOrderReturnApplyResult
@@ -11,7 +11,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @Version 1.0
  **/
 public class OmsOrderReturnApplyResult {
-    @ApiModelProperty("公司收货地址")
+    @Schema(description="公司收货地址")
     private OmsCompanyAddress companyAddress;
 
     public OmsCompanyAddress getCompanyAddress() {

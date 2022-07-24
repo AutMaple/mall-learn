@@ -1,7 +1,7 @@
 package com.autmaple.mall.tiny.dto;
 
 import com.autmaple.mall.tiny.validator.FlagValidator;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
@@ -15,33 +15,33 @@ import java.util.Objects;
  * @Version 1.0
  **/
 public class PmsBrandParam {
-    @ApiModelProperty(value = "品牌名称", required = true)
+    @Schema(description= "品牌名称", required = true)
     @NotEmpty
     private String name;
 
-    @ApiModelProperty("品牌首字母")
+    @Schema(description="品牌首字母")
     private String firstLetter;
 
-    @ApiModelProperty("排序字段")
+    @Schema(description="排序字段")
     @Min(value = 0)
     private Integer sort;
 
-    @ApiModelProperty("是否是厂家制造商")
+    @Schema(description="是否是厂家制造商")
     @FlagValidator(value = {"0", "1"}, message = "厂家设置的状态不正确")
     private Integer factoryStatus;
 
-    @ApiModelProperty("是否进行显示")
+    @Schema(description="是否进行显示")
     @FlagValidator(value = {"0", "1"}, message = "显示状态不正确")
     private Integer showStatus;
 
-    @ApiModelProperty(value = "品牌 logo", required = true)
+    @Schema(description= "品牌 logo", required = true)
     @NotEmpty
     private String logo;
 
-    @ApiModelProperty(value = "品牌大图")
+    @Schema(description= "品牌大图")
     private String bigPic;
 
-    @ApiModelProperty("品牌故事")
+    @Schema(description="品牌故事")
     private String brandStory;
 
     @Override

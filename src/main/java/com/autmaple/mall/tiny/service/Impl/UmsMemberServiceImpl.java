@@ -54,7 +54,7 @@ public class UmsMemberServiceImpl implements UmsMemberService {
     @Value("${redis.key.authCode}")
     private String REDIS_KEY_PREFIX_AUTH_CODE;
 
-    @Value("${redis.expire.authCode")
+    @Value("${redis.expire.authCode}")
     private Long AUTH_CODE_EXPIRE_SECONDS;
 
     @Override

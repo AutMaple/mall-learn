@@ -1,7 +1,7 @@
 package com.autmaple.mall.tiny.dto;
 
 import com.autmaple.mall.tiny.mbg.model.PmsProductCategory;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import java.util.List;
  * @Version 1.0
  **/
 public class PmsProductCategoryNode extends PmsProductCategory {
-    @ApiModelProperty("子分类集合")
+    @Schema(description="子分类集合")
     private List<PmsProductCategoryNode> children;
 
     public List<PmsProductCategoryNode> getChildren() {

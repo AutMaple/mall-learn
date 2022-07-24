@@ -1,6 +1,6 @@
 package com.autmaple.mall.tiny.mbg.model;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.Serializable;
 
@@ -9,9 +9,9 @@ public class SmsCouponProductRelation implements Serializable {
     private Long id;
     private Long couponId;
     private Long productId;
-    @ApiModelProperty(value = "商品名称")
+    @Schema(description = "商品名称")
     private String productName;
-    @ApiModelProperty(value = "商品编码")
+    @Schema(description = "商品编码")
     private String productSn;
 
     public Long getId() {

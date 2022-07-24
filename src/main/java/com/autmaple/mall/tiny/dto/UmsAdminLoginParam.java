@@ -1,6 +1,6 @@
 package com.autmaple.mall.tiny.dto;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.validation.constraints.NotEmpty;
 
@@ -12,11 +12,11 @@ import javax.validation.constraints.NotEmpty;
  * @Version 1.0
  **/
 public class UmsAdminLoginParam {
-    @ApiModelProperty(value = "用户名", required = true)
+    @Schema(description="用户名", required = true)
     @NotEmpty(message = "用户名不能为空")
     private String username;
 
-    @ApiModelProperty(value = "密码", required = true)
+    @Schema(description="密码", required = true)
     @NotEmpty(message = "密码不能为空")
     private String password;
 

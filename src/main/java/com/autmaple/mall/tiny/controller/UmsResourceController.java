@@ -5,8 +5,8 @@ import com.autmaple.mall.tiny.common.api.CommonResult;
 import com.autmaple.mall.tiny.component.DynamicSecurityMetaDataSource;
 import com.autmaple.mall.tiny.mbg.model.UmsResource;
 import com.autmaple.mall.tiny.service.UmsResourceService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +19,7 @@ import java.util.List;
  * @Date 2022/7/20 21:31
  * @Version 1.0
  **/
-@Api(tags = "UmsResourceController", description = "后台资源管理")
+@Tag(description = "UmsResourceController", name = "后台资源管理")
 @RestController
 @RequestMapping("/resource")
 public class UmsResourceController {
@@ -30,7 +30,7 @@ public class UmsResourceController {
     @Autowired
     private DynamicSecurityMetaDataSource dynamicSecurityMetaDataSource;
 
-    @ApiOperation("添加后台资源")
+    @Operation(summary="添加后台资源")
     @PostMapping("/create")
     public CommonResult create(@RequestBody UmsResource umsResource) {
         int count = resourceService.create(umsResource);
@@ -38,7 +38,7 @@ public class UmsResourceController {
         return count > 0 ? CommonResult.success(count) : CommonResult.failed();
     }
 
-    @ApiOperation("修改后台资源")
+    @Operation(summary="修改后台资源")
     @PostMapping("/update/{id}")
     public CommonResult update(@PathVariable Long id,
                                @RequestBody UmsResource umsResource) {
@@ -47,14 +47,14 @@ public class UmsResourceController {
         return count > 0 ? CommonResult.success(count) : CommonResult.failed();
     }
 
-    @ApiOperation("根据ID获取资源详情")
+    @Operation(summary="根据ID获取资源详情")
     @GetMapping("/{id}")
     public CommonResult<UmsResource> getItem(@PathVariable Long id) {
         UmsResource umsResource = resourceService.getItem(id);
         return CommonResult.success(umsResource);
     }
 
-    @ApiOperation("根据ID删除后台资源")
+    @Operation(summary="根据ID删除后台资源")
     @PostMapping("/delete/{id}")
     public CommonResult delete(@PathVariable Long id) {
         int count = resourceService.delete(id);
@@ -62,7 +62,7 @@ public class UmsResourceController {
         return count > 0 ? CommonResult.success(count) : CommonResult.failed();
     }
 
-    @ApiOperation("分页模糊查询后台资源")
+    @Operation(summary="分页模糊查询后台资源")
     @GetMapping("/list")
     public CommonResult<CommonPage<UmsResource>> list(@RequestParam(required = false) Long categoryId,
                                                       @RequestParam(required = false) String nameKeyword,
@@ -73,7 +73,7 @@ public class UmsResourceController {
         return CommonResult.success(CommonPage.restPage(resourceList));
     }
 
-    @ApiOperation("查询所有后台资源")
+    @Operation(summary="查询所有后台资源")
     @GetMapping("/listAll")
     public CommonResult<List<UmsResource>> listAll() {
         List<UmsResource> resourceList = resourceService.listAll();

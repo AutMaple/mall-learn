@@ -1,6 +1,6 @@
 package com.autmaple.mall.tiny.dto;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.Objects;
 
@@ -12,10 +12,10 @@ import java.util.Objects;
  * @Version 1.0
  **/
 public class ProductAttrInfo {
-    @ApiModelProperty("商品属性 ID")
+    @Schema(description="商品属性 ID")
     private Long attributeId;
 
-    @ApiModelProperty("商品属性分类 ID")
+    @Schema(description="商品属性分类 ID")
     private Long attributeCategoryId;
 
     public Long getAttributeId() {
