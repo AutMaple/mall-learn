@@ -15,8 +15,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 会员登录注册管理
- */
+ * @ClassName UmsMemberController
+ * @Description 会员登录注册管理 Controller
+ * @Author AutMaple
+ * @Date 2022/6/15 20:25
+ * @Version 1.0
+ **/
 @Api(tags = "UmsMemberController", description = "会员登录注册管理")
 @RestController
 @RequestMapping("/sso")

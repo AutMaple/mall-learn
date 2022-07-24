@@ -17,9 +17,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * 会员优惠券管理Controller
- * Created by macro on 2018/8/29.
- */
+ * @ClassName UmsMemberCouponController
+ * @Description 用户优惠券管理 Controller
+ * @Author AutMaple
+ * @Date 2022/7/24 11:21
+ * @Version 1.0
+ **/
 @Api(tags = "UmsMemberCouponController", description = "用户优惠券管理")
 @RestController
 @RequestMapping("/member/coupon")
